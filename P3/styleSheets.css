@@ -1,0 +1,451 @@
+.flight-reservation {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
+  }
+  
+  .header {
+    background-color: #fff;
+    color: #000;
+    font: 400 24px/150% Krona One, sans-serif;
+    letter-spacing: -0.24px;
+    padding: 30px 54px;
+    width: 100%;
+  }
+  
+  .section_img {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-weight: 350;
+    justify-content: center;
+    line-height: 120%;
+    min-height: 524px;
+    overflow: hidden;
+    padding: 70px 24px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .hero-image {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .content_img {
+    display: flex;
+    flex-direction: column;
+    margin: 115px 0 48px;
+    position: relative;
+    width:100%;
+  }
+  
+  .hero-title {
+    font: 700 72px Inter, sans-serif;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .subtitle_img {
+    font: 20px Inter, sans-serif;
+    margin-top: 0px;
+    text-align: center;
+  }
+  
+  .botones_img {
+    align-self: center;
+    display: flex;
+    font-size: 16px;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .boton_registro {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid rgba(22, 81, 128, 1);
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(22, 81, 128, 1);
+    font-family: Inter, sans-serif;
+    padding: 12px;
+    width: 90px;
+  }
+  
+  .boton_reservar {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid rgba(22, 81, 128, 1);
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(22, 81, 128, 1);
+    font-family: Inter, sans-serif;
+    padding: 12px;
+    width: 90px;
+  }
+  
+  .reservation-panel {
+    align-self: center;
+    background-color: #fff;
+    border: 1px solid rgba(245, 245, 245, 1);
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    max-width: 100%;
+    padding: 70px 50px;
+    width: 850px;
+  }
+  
+  .reservation-form {
+    padding: 50px;
+    max-width: 100%;
+    width: 700px;
+  }
+  
+  .form-row {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .form-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    
+  }
+  
+  .columna_izq {
+    width: 45%;
+  }
+  
+  .columna_der {
+    width: 45%;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+    
+  }
+  
+  .form-title {
+    color: #000;
+    font: 28px/129% Roboto, sans-serif;
+    letter-spacing: 0;
+  }
+  
+  .form-label {
+    font-family: Inter, sans-serif;
+    margin-top: 16px;
+  }
+  
+  .form-input {
+    background-color: var(--sds-color-background-default-default);
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 5px;
+    font-family: Inter, sans-serif;
+    justify-content: center;
+    line-height: 100%;
+    margin-top: 8px;
+    padding: 12px 16px;
+  }
+  
+  .form-divider {
+    background-color: var(--Schemes-Outline-Variant, #cac4d0);
+    border: 1px solid rgb(217, 217, 217);
+    height: 1px;
+    margin-top: 15px;
+  }
+  
+  .luggage-section {
+    color: #000;
+    font: 400 24px/133% Roboto, sans-serif;
+    letter-spacing: 0;
+    margin: 47px 0 0 70px;
+  }
+  
+  .luggage-container {
+    align-self: center;
+    max-width: 100%;
+    width: 677px;
+  }
+  
+  .luggage-row {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .luggage-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+  }
+  
+  .luggage-panel {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+
+  }
+  
+  .luggage-item {
+    font-family: Inter, sans-serif;
+    
+  }
+  
+  .luggage-input {
+    background-color: var(--sds-color-background-default-default);
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 5px;
+    font-family: Inter, sans-serif;
+    justify-content: center;
+    line-height: 100%;
+    margin: 8px 0px 20px;
+    padding: 12px 20px;
+    text-align: right;
+  }
+   
+  .seat-map {
+    align-items: start;
+    background-color: #fff;
+    border: 1px solid rgba(217, 217, 217, 1);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 76px 51px 40px 20px;
+    width: 100%;
+}
+
+.seat-row {
+    align-self: center;
+    color: #452891;
+    display: flex;
+    gap: 4px;
+    text-align: center;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+.seat-number {
+    flex-grow: 1;
+    font: 400 16px Montserrat, sans-serif;
+    margin: auto 0;
+}
+
+.seat-group {
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 0;
+}
+
+.seat {
+    background-color: #fff73b;
+    border: 1px solid rgba(69, 40, 145, 1);
+    border-radius: 5px;
+    font-family: Montserrat, sans-serif;
+    justify-content: center;
+    padding: 8px 0;
+    width: 20px;
+    height: 10px;
+}
+
+.seat-available {
+    background-color: #fff;
+    height: 10px;
+}
+
+.seat-selected {
+    background-color: #3dc000;
+    gap: 5px;
+}
+
+.seat-unavailable {
+    background-color: #a50032;
+}
+
+.seat-exit {
+    background-color: #2490e7;
+    width: 41px;
+}
+
+/* Reglas específicas para las filas con números 41 a 43 */
+.seat-row:nth-child(12) .seat-group span:nth-child(3),
+.seat-row:nth-child(13) .seat-group span:nth-child(3),
+.seat-row:nth-child(14) .seat-group span:nth-child(3)
+ {
+    margin-left: 11px;
+}
+
+.seat-row:nth-child(12) .seat-group span:nth-child(6),
+.seat-row:nth-child(13) .seat-group span:nth-child(6),
+.seat-row:nth-child(14) .seat-group span:nth-child(6),
+.seat-row:nth-child(15) .seat-group span:nth-child(6) {
+    margin-right: 11px;
+}
+
+/*caso de fila 15 es decir 44 */
+.seat-row:nth-child(15) .seat-group span:nth-child(1){
+    margin-right: 7px;
+    margin-left: 10px;
+}
+.seat-row:nth-child(15) .seat-group span:nth-child(6){
+    margin-left: 7px;
+}
+
+/* Reglas para filas generales que no deberían afectar a los números específicos */
+.seat-row:not(:nth-child(12)):not(:nth-child(13)):not(:nth-child(14)):not(:nth-child(15)) .seat-group span:nth-child(3) {
+    margin-left: 5px;
+}
+
+.seat-row:not(:nth-child(12)):not(:nth-child(13)):not(:nth-child(14)):not(:nth-child(15)) .seat-group span:nth-child(7) {
+    margin-right: 5px;
+}
+
+/* Asegurando que las reglas no afecten a los números 30 y 45 */
+.seat-row:nth-child(1) .seat-group span:nth-child(3),
+.seat-row:nth-child(16) .seat-group span:nth-child(3) {
+    margin-left: 0px;
+    gap: 2px;
+}
+ 
+
+  .action-buttons {
+    align-self: center;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 20px;
+    justify-content: space-between;
+    letter-spacing: 0.1px;
+    line-height: 143%;
+    margin-top: 94px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .action-button {
+    background-color: #452891;
+    border-radius: 5px;
+    color: var(--Schemes-On-Primary, #fff);
+    font-family: Roboto, sans-serif;
+    justify-content: center;
+    padding: 10px 30px;
+  }
+  
+  @media (max-width: 991px) {
+    .header {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    .hero-section {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    .hero-content {
+      margin: 40px 0;
+    }
+  
+    .hero-title {
+      font-size: 40px;
+    }
+  
+    .hero-button-primary {
+      white-space: initial;
+    }
+  
+    .reservation-panel {
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  
+    .form-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  
+    .form-column {
+      width: 100%;
+    }
+  
+    .form-group {
+      margin-top: 40px;
+    }
+  
+    .form-input {
+      white-space: initial;
+      margin: 0 10px;
+    }
+  
+    .form-divider {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .luggage-section {
+      margin: 40px 0 0 10px;
+    }
+  
+    .luggage-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  
+    .luggage-column {
+      width: 100%;
+    }
+  
+    .luggage-panel {
+      margin-top: 40px;
+    }
+  
+    .luggage-item,
+    .luggage-input {
+      margin: 0 10px;
+    }
+  
+    .seat-selection-button {
+      margin: 0 10px;
+      padding: 0 20px;
+    }
+  
+    .seat-map {
+      margin-top: 40px;
+      padding-right: 20px;
+    }
+  
+    .seat-row,
+    .seat-group {
+      white-space: initial;
+    }
+  
+    .action-buttons {
+      margin-top: 40px;
+      white-space: initial;
+    }
+  
+    .action-button {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
