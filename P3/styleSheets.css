@@ -90,6 +90,12 @@
     width: 90px;
   }
   
+  .boton_registro:hover,
+  .boton_reservar:hover {
+      transform: scale3d(1.2,1.2,1);
+      transition: 0.25s;
+  }
+
   .reservation-panel {
     align-self: center;
     background-color: #fff;
@@ -461,4 +467,7 @@
       white-space: initial;
       padding: 0 20px;
     }
-  }
+}
+.seat.seleccionado {
+  background-color: rgb(54, 3, 196);
+}
