@@ -29,7 +29,92 @@ botonReservar.addEventListener("click", () =>{
 
 
 /*SECCION DEL PANEL DE RESERVACION*/
+//obtenemos los botones
+let botonRegistrar = document.querySelector(".boton_registro")
 
+//añadimos el evento al boton reservar, para que se despliegue el menu de reserva
+botonRegistrar.addEventListener("click", () =>{
+
+    //obtenemos el panel de reservacion
+    let registro = document.querySelector(".registro-panel")
+    //hacemos que se renderice
+    registro.style.display = "flex";
+
+    //obtenemos el panel pincipal
+    let pincipal = document.querySelector(".section_img")
+    pincipal.style.display = "none"
+
+    //obtenemos el panel de los botones de reserva
+    let botones = document.querySelector(".action-buttons")
+    botones.style.display = "flex"
+})
+
+
+/*BOTON VOLVER para ambos paneles*/ 
+// Obtenemos todos los botones de volver
+let botonesVolver = document.querySelectorAll(".boton-volver");
+
+// Añadimos el evento a cada botón de volver
+botonesVolver.forEach(boton => {
+    boton.addEventListener("click", () => {
+        // Obtenemos el panel principal
+        let principal = document.querySelector(".section_img");
+        // Mostramos el panel principal
+        principal.style.display = "flex";
+
+        // Obtenemos el panel de los botones de reserva
+        let botones = document.querySelector(".action-buttons");
+        botones.style.display = "flex";
+
+        // Obtenemos todos los paneles que pueden estar visibles y los ocultamos
+        let paneles = document.querySelectorAll(".reservation-panel, .registro-panel");
+        paneles.forEach(panel => {
+            panel.style.display = "none";
+        });
+    });
+});
+
+//obtenemos los botones
+//guarda y redirige a panel de costos
+let botonGuardar = document.querySelector(".boton-guardar")
+
+//añadimos el evento al boton reservar, para que se despliegue el menu de reserva
+botonGuardar.addEventListener("click", () =>{
+
+    //obtenemos el panel de reservacion
+    let costo = document.querySelector(".costos-panel")
+    //hacemos que se renderice
+    costo.style.display = "flex";
+
+    //obtenemos el panel pincipal
+    let registro = document.querySelector(".reservation-panel")
+    registro.style.display = "none"
+
+    //obtenemos el panel de los botones de reserva
+    //let botones = document.querySelector(".action-buttons")
+    //botones.style.display = "flex"
+})
+
+//obtenemos los botones
+//guarda y redirige a panel de costos
+let botonVolverReserva = document.querySelector(".boton-volver-reserva")
+//añadimos el evento al boton editar reserva, para que se despliegue el menu de reserva
+botonVolverReserva.addEventListener("click", () =>{
+    
+
+    //obtenemos el panel de reservacion
+    let costo = document.querySelector(".costos-panel")
+    //hacemos que se renderice
+    costo.style.display = "none";
+    
+    //obtenemos el panel pincipal
+    let registro = document.querySelector(".reservation-panel")
+    registro.style.display = "flex"
+
+    //obtenemos el panel de los botones de reserva
+    //let botones = document.querySelector(".action-buttons")
+    //botones.style.display = "flex"
+})
 
 /*
 

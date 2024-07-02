@@ -68,9 +68,9 @@
     margin-top: 15px;
   }
   
-  .boton_registro {
-    background-color: transparent;
-    color: #fff;
+  .boton_registro,.boton_reservar {
+    background-color: white;
+    color: rgb(22, 81, 128, 1);
     border: 3px solid rgba(22, 81, 128, 1);
     border-radius: 10px;
     box-shadow: 0 4px 4px 0 rgba(22, 81, 128, 1);
@@ -79,23 +79,17 @@
     width: 90px;
   }
   
-  .boton_reservar {
-    background-color: transparent;
-    color: #fff;
-    border: px solid rgba(22, 81, 128, 1);
-    border-radius: 10px;
-    box-shadow: 0 4px 4px 0 rgba(22, 81, 128, 1);
-    font-family: Inter, sans-serif;
-    padding: 12px;
-    width: 90px;
-  }
-  
+  /*TRANSFORMACION*/
   .boton_registro:hover,
-  .boton_reservar:hover {
-      transform: scale3d(1.2,1.2,1);
-      transition: 0.25s;
+  .boton_reservar:hover, .boton-borrar:hover, .boton-guardar:hover
+  .boton-volver:hover, .boton-ver:hover, .boton-eliminar:hover,
+  .boton-volver-reserva, .boton-aceptar
+  {
+      transform: scale3d(1.1,1.1,1);
+      transition: 0.10s;
   }
 
+  /*panel de reserva*/
   .reservation-panel {
     align-self: center;
     background-color: #fff;
@@ -104,14 +98,14 @@
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
-    margin-top: 200px;
+    margin-top: 50px;
     max-width: 100%;
-    padding: 70px 50px;
+    padding: 20px 50px;
     width: 850px;
   }
   
   .reservation-form {
-    padding: 50px;
+    padding: 20px;
     max-width: 100%;
     width: 700px;
   }
@@ -272,7 +266,7 @@
     height: 10px;
 }
 
-/*transicion hover, active, visite*/
+/*transicion en las sillsas hover, active, visite*/
 .seat:hover{ /*cuando el mouse pasa por la silla*/
   background-color: rgb(54, 3, 196);
 }
@@ -342,7 +336,7 @@
 }
  
 
-  .action-buttons {
+  .action-buttons, .boton-volver {
     align-self: center;
     display: flex;
     font-size: 14px;
@@ -356,18 +350,72 @@
     white-space: nowrap;
   }
   
-  .action-button {
+  .boton-borrar, .boton-guardar{
     background-color: #452891;
     border-radius: 10px;
     border-color: #c9e1ff;
     color: var(--Schemes-On-Primary, #fff);
     font-family: Roboto, sans-serif;
     justify-content: center;
-    padding: 10px 30px;
     height: 45px;
     width: 100px;
   }
+  /*panel de registro*/
+  .registro-panel{
+    /* Esto es en realidad el valor predeterminado, pero asegúrate de que no esté configurado en flex */
+    display: block;
+  }
+  .registro-panel button,
+  .registro-panel table {
+    display: block;
+    width: 100%; /* Opcional: hace que el botón y la tabla ocupen todo el ancho del contenedor */
+    margin-bottom: 10px; /* Opcional: agrega espacio entre el botón y la tabla */
+  }
+
+
+  table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
   
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right; /* Align all cells to the right by default */
+  }
+  
+  th.left-align, td.left-align {
+    text-align: left; /* Override alignment for the first column */
+  }
+  
+  th {
+    background-color: #452891;
+    color: #fff;
+    font: 14px Inter, sans-serif;
+  }
+  td {
+    font: 14px Inter, sans-serif;
+  }
+  .columna-cantidades{
+    width: 40px;
+  }
+  .columna-botones {
+    width: 10px;
+  }
+  .boton-eliminar {
+    background-color: rgb(200, 0, 0);
+    border: 2px solid rgb(200, 0, 0);
+    color: white;
+    border-radius: 3px;
+  }
+  .boton-ver {
+    background-color: rgb(7, 200, 0);
+    border: 2px solid rgb(7, 200, 0);
+    color: white;
+    border-radius: 3px;
+  }
+
   @media (max-width: 991px) {
     .header {
       max-width: 100%;

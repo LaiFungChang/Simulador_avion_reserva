@@ -23,6 +23,7 @@
         </section>
         <main class="reservation-panel" style="display: none;">
           <form class="reservation-form">
+            <button class="boton-volver" id ="botonVolverResInicio">volver</button>
             <h2 class="form-title">Reserva de vuelo</h2>
             <div class="form-row">
               <div class="columna_izq">
@@ -49,6 +50,14 @@
             <div class="luggage-row">
               <div class="luggage-column">
                 <div class="luggage-panel">
+                  <label for="tipoAsiento">Seleccione el tipo de asiento:</label>
+                  <select id="tipoAsiento" onchange="mostrarSeleccion()">
+                    <option value="" selected disabled hidden>Seleccione...</option>
+                    <option value="ejecutivo">Ejecutivo</option>
+                    <option value="economico">Económico</option>
+                  </select>
+
+                  <label id="seleccionado"></label>
                   <label for="registered-luggage" class="luggage-item">Equipaje de Registrado</label>
                   <input id="registered-luggage" type="number" class="luggage-input" value="0" min="0" />
                   <label for="hand-luggage" class="luggage-item">Equipaje de Mano</label>
@@ -289,11 +298,128 @@
                 </div>
             </div>
           </div>
+          <div class="action-buttons" style="display: none;">
+            <button id="botonBorrarReserva" class="boton-borrar">Borrar</button>
+            <button id="botonGuardarReserva" class="boton-guardar">Guardar</button>
+          </div>
       </main>
-      <div class="action-buttons" style="display: none;">
-        <button id="botonBorrarReserva" class="action-button">Borrar</button>
-        <button id="botonGuardarReserva"class="action-button">Guardar</button>
-      </div>
+        <!--TABLA DE REGISTRO-->
+        <section class="registro-panel" style="display: none;">
+          <button class="boton-volver">volver</button>
+          <table>
+            <thead>
+              <!--Encabezado de tabla de registro-->
+                <tr>
+                    <th class="left-align">Pasajero</th>
+                    <th class="columna-cantidades">Equipaje Registrado</th>
+                    <th class="columna-cantidades">Equipaje de Mano</th>
+                    <th class="columna-cantidades" style="width: 80px;">Cantidad de Asientos</th>
+                    <th>Asiento(s)</th>
+                    <th class="columna-botones"></th>
+                    <th class="columna-botones"></th>
+                </tr>
+            </thead>
+            <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
+                <tr>
+                    <td class="left-align">Pakita Barrios</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>A31</td>
+                    <td><button class="boton-ver">Ver</button></td>
+                    <td><button class="boton-eliminar">X</button></td>
+                </tr>         
+            </tbody>
+        </table>
+        </section>
+        <!--TABLA DE COSTOS-->
+        <section class="costos-panel" style="display: none;">
+          
+          <!--tipo de clase de vuelo-->
+          <table>
+            <thead>
+              <!--Encabezado de tabla de COSTOS-->
+                <tr>
+                    <th class="left-align">Clase</th>
+                    <th >Porcentaje de costo</th>
+                </tr>
+            </thead>
+            <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
+              <!--fila 1-->
+                <tr>
+                    <td class="left-align">Economico/Ejecutivo</td>
+                    <td class="left-align">10%</td>
+                </tr> 
+
+            </tbody>
+        </table>
+          <!--Info table-->
+          <table>
+            <thead>
+              <!--Encabezado de tabla de COSTOS-->
+                <tr>
+                    <th class="left-align">Cargos/servicios</th>
+                    <th class="columna-cantidades">Costo ($)</th>
+                    <th class="columna-cantidades" style="width: 80px;">Cantidad (unid)</th>
+                    <th class="columna-cantidades">Monto($)</th>
+                </tr>
+            </thead>
+            <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
+              <!--fila 1-->
+                <tr>
+                    <td class="left-align">Maleta Registrada</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr> 
+                <!--fila 2-->
+                <tr>
+                  <td class="left-align">Maleta de Mano</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr> 
+                <!--fila 3-->
+                <tr>
+                  <td class="left-align">Adulto </td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+              </tr> 
+              <!--fila 4-->
+              <tr>
+                <td class="left-align">Niños </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr> 
+            <!--fila 5-->
+            <tr>
+              <td class="left-align">Infantes </td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+          </tr> 
+          <!--fila 6-->
+          <tr>
+            <td class="left-align">Total </td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr> 
+            </tbody>
+             <!--fila 7-->
+          <tr>
+            <td class="left-align">Total + clase %</td>
+            <td>0</td>
+
+        </tr> 
+            </tbody>
+        </table>
+        <!--REDIRIGE AL PANEL DE RESERVAR FALTA-->
+        <button class="boton-volver-reserva">Modificar reserva</button>
+        <button class="boton-aceptar">Aceptar reserva</button>
+        </section>
       </section>
       <script src="asientos_seleccion.js" defer></script>
 </body>
