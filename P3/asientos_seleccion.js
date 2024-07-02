@@ -3,7 +3,7 @@ contains(class) --> verifica si el elemento tiene esa clase, si la tiene devuelv
 e.target
 */
 
-/* Seccion principal */
+/* SECCION PRINCIPAL */
 
 //obtenemos los botones
 let botonRegistro = document.querySelector(".boton_registro")
@@ -27,12 +27,62 @@ botonReservar.addEventListener("click", () =>{
 })
 
 
-/*Seccion del panel de reservacion */
+
+/*SECCION DEL PANEL DE RESERVACION*/
+
+
+/*
+
+    Input del pasaporte con solo numeros
+
+ inputPasaporte.addEventListener('input', function() {
+    let value = this.value.trim(); // Obtener el valor del input y eliminar espacios en blanco al principio y al final
+    let formattedValue = '';
+
+    // Agregar los caracteres numéricos restantes hasta un máximo de 9 caracteres en total
+    for (let i = 0; i < Math.min(value.length, 9); i++) {
+        let char = value[i];
+        if (char >= '0' && char <= '9') {
+            formattedValue += char;
+        }
+    }
+
+    // Limitar a un máximo de 9 caracteres
+    formattedValue = formattedValue.substring(0, 9);
+
+    // Actualizar el valor del input
+    this.value = formattedValue;
+});
+
+    Input del telefono en formato Internacional
+
+    inputTelefono.addEventListener('input', function() {
+    let value = this.value.trim(); // Obtener el valor del input y eliminar espacios en blanco al principio y al final
+    let formattedValue = '';
+
+    // Filtrar y formatear solo caracteres numéricos
+    for (let i = 0; i < value.length; i++) {
+        let char = value[i];
+        // Verificar si el caracter es un número del 0 al 9
+        if (char >= '0' && char <= '9') {
+            formattedValue += char;
+        }
+    }
+	if (formattedValue.length > 1){
+		this.value = "+"
+	}
+
+    // Actualizar el valor del input
+    this.value = formattedValue.substring(0,15);
+});
+
+    Cambiar la validacion del boton guardar --> inputTelefono.value.length < 12
+
+*/
 
 //validaciones panel contacto
-
 //hacemos la validacion para el input del nombre
-let inputContacto = document.querySelector("#contact")
+var inputContacto = document.querySelector("#contact")
 
 inputContacto.addEventListener('input', function() {
     let filteredValue = '';
@@ -44,13 +94,13 @@ inputContacto.addEventListener('input', function() {
             filteredValue += char; // Agregar el caracter al valor filtrado
         }
     }
-    // Establecer el valor filtrado de vuelta en el input
+    // Establecer el valor filtrado de vuelta en el input 
     this.value = filteredValue;
 });
 
 
 //hacemos la validacion para el input del pasaporte
-let inputPasaporte = document.querySelector("#passport");
+var inputPasaporte = document.querySelector("#passport");
 inputPasaporte.addEventListener('input', function() {
     let value = this.value.trim(); // Obtener el valor del input y eliminar espacios en blanco al principio y al final
     let formattedValue = '';
@@ -83,7 +133,7 @@ inputPasaporte.addEventListener('input', function() {
 
 
 //hacemos la validacion para el input del telefono
-let inputTelefono = document.querySelector("#phone")
+var inputTelefono = document.querySelector("#phone")
 inputTelefono.addEventListener('input', function() {
     let value = this.value.trim(); // Obtener el valor del input y eliminar espacios en blanco al principio y al final
     let formattedValue = '';
@@ -106,9 +156,66 @@ inputTelefono.addEventListener('input', function() {
     this.value = formattedValue;
 });
 
+//sacamos el input del correo
+var inputCorreo = document.querySelector("#email")
+function validarCorreoElectronico(correo) {
+    // Expresión regular para validar un correo electrónico
+    const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexCorreo.test(correo);
+}
 
+//agregamos las validaciones al boton guardar del panel de reserva
+var inputGuardarReserva = document.querySelector("#botonGuardarReserva")
+//agregamos el evento al boton guardar
+inputGuardarReserva.addEventListener("click" ,()=>{
+    if (inputContacto.value == ""){
+        alert("El contacto es invalido")
+        return null
+    }
+    else if(inputPasaporte.value.length < 9){
+        alert("Pasaporte incompleto")
+        return null
+    }
+    else if(inputTelefono.value.length < 12){
+        alert("telefono incompleto")
+        return null
+    }
+    else if(!validarCorreoElectronico(inputCorreo.value)){
+        alert("Correo invalido")
+        return null
+    }
+    else if(inputAsientos.value.split(" ").length -1 != sumarPasajeros()){
+        alert("Rellene los asientos")
+        return null
+    }
+});
 
+//agregamos la funcion al boton borrar
+var inputBorrarReserva = document.querySelector("#botonBorrarReserva")
+inputBorrarReserva.addEventListener("click" , ()=>{
+    //obtenemos los inputs restantes de la parte de info vuelo
+    let inputEquipajeRegistrado = document.querySelector("#registered-luggage")
+    let inputEquipajeMano = document.querySelector("#hand-luggage")
+    let inputAdultos = document.querySelector("#adults")
+    let inputNiños = document.querySelector("#children")
+    let inputInfantes = document.querySelector("#infants")
 
+    //procedemos a borrar cada valor de los inputs
+    inputContacto.value = ""
+    inputPasaporte.value = ""
+    inputTelefono.value = ""
+    inputCorreo.value = ""
+    inputEquipajeRegistrado.value = "0"
+    inputEquipajeMano.value = "0"
+    inputAdultos.value = "0"
+    inputNiños.value = "0"
+    inputInfantes.value = "0"
+    inputAsientos.value = ""
+    asientosHTML.forEach((asiento) =>{
+        asiento.classList.remove("seleccionado")
+    })
+
+})
 
 
 
@@ -157,7 +264,7 @@ asientosHTML.forEach(asiento => {
         if (asientoDelEvento.classList.contains("seleccionado") ) {
             asientoDelEvento.classList.remove("seleccionado");
             //Quitamos el asiento del input
-            inputAsientos.value = inputAsientos.value.replace(asientoDelEvento.getAttribute("data-value"), "")
+            inputAsientos.value = inputAsientos.value.replace(" "+asientoDelEvento.getAttribute("data-value"), "")
             return null
         }
 
@@ -178,10 +285,29 @@ asientosHTML.forEach(asiento => {
         })
         //verificamos que la cantidad de los asientos seleccionados, no pase que la cantidad proporcionada por el usuario
         if (contAsientos > contAsientosSelect) {
-            inputAsientos.value += " " + asientoDelEvento.getAttribute("data-value")
+            if(contAsientos == 0){
+                inputAsientos.value += asientoDelEvento.getAttribute("data-value")
+            }
+            else{
+                inputAsientos.value += " " + asientoDelEvento.getAttribute("data-value")
+            }
             asientoDelEvento.classList.add("seleccionado")
         }
     })
 })
 
 
+// cremaos el objeto ReservaPersona
+var contadorReservas = 1
+class ReservaPersona{
+    constructor(nombre,pasaporte,boletoAdultos,boletoNiños,boletoInfantes, pago){
+        this.nombre = nombre;
+        this.pasaporte = pasaporte;
+        this.boletoAdultos = boletoAdultos;
+        this.boletoNiños = boletoNiños;
+        this.boletoInfantes = boletoInfantes;
+        this.pago = pago;
+        this.identificador = `PersonaReserva${contadorReservas}`
+        contadorReservas += 1;
+    }
+}
