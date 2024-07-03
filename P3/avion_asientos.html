@@ -421,6 +421,57 @@
         <button class="boton-volver-reserva">Modificar reserva</button>
         <button class="boton-aceptar">Aceptar reserva</button>
         </section>
+        <!--PANEL DE PAGO-->
+        <section class="payment-method">
+          <div class="payment-container">
+            <div class="payment-content">
+              <div class="payment-options">
+                <div>
+                  <h2 class="payment-title">Metodo de Pago</h2>
+                  <p class="payment-subtitle">Elige bandera de tu tarjeta de credito o debito.</p>
+                  <div class="card-options">
+                      <!--primera opcion-->
+                      <img src="visa.png" alt="Visa logo" class="card-logo" />
+      
+                      <!--segunda opcion-->
+                      <img src="mastercard.png" alt="Mastercard logo" class="card-logo" />
+                      
+                      <!--tercera opcion-->
+                      <img src="american_express.png" alt="American Express logo" class="card-logo" />
+                      <!--cuarta opcion-->
+                      <img src="jcb.png" alt="Discover logo" class="card-logo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form class="card-form" onsubmit="submitForm(event)">
+              <div class="payment-options">
+                <div>
+                  <h3 class="form-title-pay">Ingrese los datos de su tarjeta</h3>
+                  <div class="form-group-pay">
+                    <label for="cardNumber" class="form-label">Número de tarjeta</label>
+                    <input type="text" id="cardNumber" class="form-input-digitos-tarjeta" placeholder="Ingrese los 16 digitos de la tarjeta" required />
+                  </div>
+                  <div class="form-group-pay">
+                    <label for="expiryDate" class="form-label">Fecha de vencimiento</label>
+                    <input type="date" id="expiryDate" class="form-date-input" required />
+                  </div>
+                  <div class="form-group-pay">
+                    <label for="securityCode" class="form-label">Codigo de seguridad</label>
+                    <input type="text" id="securityCode" class="form-security-input" required />
+                  </div>  
+                  <div class="form-group-pay">
+                    <label for="cardHolder" class="form-label">Titular de la tarjeta</label>
+                    <input type="text" id="cardHolder" class="form-input-nombre-tarjeta" placeholder="Nombres y Apellidos" required />
+                  </div>
+                 
+                </div>
+              </div>
+            </form>
+            <button type="submit" class="boton-pagar">Realizar Pago</button>
+          </div>
+        </section>
+      
       </section>
       <script src="asientos_seleccion.js" defer></script>
 </body>
