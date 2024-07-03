@@ -4,6 +4,35 @@ e.target
 */
 
 
+//Scrolls 
+
+/* PANEL PRINCIPAL */
+
+//boton reservar panel principal
+let botonReservarPanelPrincipal = document.querySelector(".boton_reservar")
+botonReservarPanelPrincipal.addEventListener("click", ()=>{
+    //hacemos que se haga scroll al panel de resevacion
+    document.querySelector(".reservation-form").scrollIntoView();
+})
+
+//boton registro panel principal
+let botonRegistroPanelPrincipal = document.querySelector(".boton_registro")
+botonRegistroPanelPrincipal.addEventListener("click", ()=>{
+    document.querySelector(".registro-panel").scrollIntoView();
+    despuesBotonRegistro()
+
+})
+
+/* Panel de reserva*/
+let botonVolerPanelReserva = document.querySelector(".boton-volver-seccion-reservacion")
+botonVolerPanelReserva.addEventListener("click" , ()=>{
+    console.log("hola")
+    document.querySelector(".section_img").scrollIntoView();
+    borrarFormularioReserva()
+})
+
+
+
 function borrarFormularioReserva(){
     
     //procedemos a borrar cada valor de los inputs
@@ -231,6 +260,7 @@ inputGuardarReserva.addEventListener("click" ,()=>{
     else{
 
         //Primero obtenemos las entradas de las tablas
+        document.querySelector(".costos-panel").scrollIntoView();
         let tablaMaletaRegistrada = document.querySelector("#tablaMaletaRegistrada")
         let tablaMaletaRegistradaPago = document.querySelector("#tablaMaletaRegistradaPago")
         let tablaMaletaMano = document.querySelector("#tablaMaletaMano")
@@ -260,14 +290,7 @@ inputGuardarReserva.addEventListener("click" ,()=>{
     }
 });
 
-//programamos el boton volver de la secccion de registro
-let botonVolerSeccionReserva = document.querySelector(".boton-volver-seccion-reservacion")
-botonVolerSeccionReserva.addEventListener("click", ()=>{
-    let panelPrincipal1 = document.querySelector(".section_img")
-    let panelReserva1 = document.querySelector(".reservation-panel")
-    panelPrincipal1.style.display = "flex"
-    panelReserva1.style.display = "none"
-})
+
 
 //Funcion que suma la cantidad de pasajeros
 function sumarPasajeros() {
@@ -468,7 +491,3 @@ function despuesBotonRegistro(){
 
 }
 
-let botonRegistro = document.querySelector(".boton_registro")
-botonRegistro.addEventListener("click", ()=>{
-    despuesBotonRegistro()
-})
