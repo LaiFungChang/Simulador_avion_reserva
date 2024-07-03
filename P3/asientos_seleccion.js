@@ -11,14 +11,19 @@ e.target
 //boton reservar panel principal
 let botonReservarPanelPrincipal = document.querySelector(".boton_reservar")
 botonReservarPanelPrincipal.addEventListener("click", ()=>{
-    //hacemos que se haga scroll al panel de resevacion
-    document.querySelector(".reservation-form").scrollIntoView();
+    let panelPrincipal = document.querySelector(".section_img")
+    panelPrincipal.style.display = "none"
+    let panelReserva = document.querySelector(".reservation-panel")
+    panelReserva.style.display = "flex"
 })
 
 //boton registro panel principal
 let botonRegistroPanelPrincipal = document.querySelector(".boton_registro")
 botonRegistroPanelPrincipal.addEventListener("click", ()=>{
-    document.querySelector(".registro-panel").scrollIntoView();
+    let panelPrincipal = document.querySelector(".section_img")
+    panelPrincipal.style.display = "none"
+    let panelRegistro = document.querySelector(".registro-panel")
+    panelRegistro.style.display = "flex"
     despuesBotonRegistro()
 
 })
@@ -26,11 +31,30 @@ botonRegistroPanelPrincipal.addEventListener("click", ()=>{
 /* Panel de reserva*/
 let botonVolerPanelReserva = document.querySelector(".boton-volver-seccion-reservacion")
 botonVolerPanelReserva.addEventListener("click" , ()=>{
-    console.log("hola")
-    document.querySelector(".section_img").scrollIntoView();
+    let panelReservacion = document.querySelector(".reservation-panel")
+    panelReservacion.style.display = "none"
+    let panelPrincipal = document.querySelector(".section_img")
+    panelPrincipal.style.display = "flex"
     borrarFormularioReserva()
 })
 
+/* Panel de costos */
+let botonVolverPanelCostos = document.querySelector(".boton-volver-reserva")
+botonVolverPanelCostos.addEventListener("click" , ()=>{
+    let panelCostos = document.querySelector(".costos-panel")
+    panelCostos.style.display = "none"
+    let panelReserva = document.querySelector(".reservation-panel")
+    panelReserva.style.display = "flex"
+})
+
+/* Panel de registro */
+let botonVolerPanelRegistro = document.querySelector(".boton-volver-tabla-registro")
+botonVolerPanelRegistro.addEventListener("click", ()=>{
+    let panelRegistro = document.querySelector(".registro-panel")
+    panelRegistro.style.display = "none"
+    let panelPrincipal = document.querySelector(".section_img")
+    panelPrincipal.style.display = "flex"
+})
 
 
 function borrarFormularioReserva(){
@@ -259,8 +283,14 @@ inputGuardarReserva.addEventListener("click" ,()=>{
     }
     else{
 
+        let panelReservacion = document.querySelector(".reservation-panel")
+        panelReservacion.style.display = "none"
+        let panelCostos = document.querySelector(".costos-panel")
+        panelCostos.style.display = "flex"
+
+
         //Primero obtenemos las entradas de las tablas
-        document.querySelector(".costos-panel").scrollIntoView();
+        
         let tablaMaletaRegistrada = document.querySelector("#tablaMaletaRegistrada")
         let tablaMaletaRegistradaPago = document.querySelector("#tablaMaletaRegistradaPago")
         let tablaMaletaMano = document.querySelector("#tablaMaletaMano")
