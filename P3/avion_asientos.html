@@ -21,9 +21,9 @@
             </div>
           </div>
         </section>
-        <main class="reservation-panel" style="display: none;">
+        <main class="reservation-panel">
           <form class="reservation-form">
-            <button class="boton-volver" id ="botonVolverResInicio">volver</button>
+            <button class="boton-volver-seccion-reservacion" id ="botonVolverResInicio">volver</button>
             <h2 class="form-title">Reserva de vuelo</h2>
             <div class="form-row">
               <div class="columna_izq">
@@ -299,14 +299,14 @@
                 </div>
             </div>
           </div>
-          <div class="action-buttons" style="display: none;">
+          <div class="action-buttons">
             <button id="botonBorrarReserva" class="boton-borrar">Borrar</button>
             <button id="botonGuardarReserva" class="boton-guardar">Guardar</button>
           </div>
       </main>
         <!--TABLA DE REGISTRO-->
-        <section class="registro-panel" style="display: none;">
-          <button class="boton-volver">volver</button>
+        <section class="registro-panel">
+          <button class="boton-volver-tabla-registro">volver</button>
           <table>
             <thead>
               <!--Encabezado de tabla de registro-->
@@ -320,7 +320,7 @@
                     <th class="columna-botones"></th>
                 </tr>
             </thead>
-            <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
+            <tbody id="tablaRegistro"> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
                 <tr>
                     <td class="left-align">Pakita Barrios</td>
                     <td>0</td>
@@ -334,7 +334,7 @@
         </table>
         </section>
         <!--TABLA DE COSTOS-->
-        <section class="costos-panel" style="display: none;">
+        <section class="costos-panel">
           
           <!--tipo de clase de vuelo-->
           <table>

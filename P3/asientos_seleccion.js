@@ -3,6 +3,7 @@ contains(class) --> verifica si el elemento tiene esa clase, si la tiene devuelv
 e.target
 */
 
+
 function borrarFormularioReserva(){
     
     //procedemos a borrar cada valor de los inputs
@@ -23,100 +24,10 @@ function borrarFormularioReserva(){
     inputTipoAsiento.selectedIndex = 0
 }
 
-/* SECCION PRINCIPAL */
-
-//obtenemos los botones
-let botonRegistro = document.querySelector(".boton_registro")
-let botonReservar = document.querySelector(".boton_reservar")
-
-//añadimos el evento al boton reservar, para que se despliegue el menu de reserva
-botonReservar.addEventListener("click", () =>{
-
-    //obtenemos el panel de reservacion
-    let reservacion = document.querySelector(".reservation-panel")
-    //hacemos que se renderice
-    reservacion.style.display = "flex";
-
-    //obtenemos el panel pincipal
-    let pincipal = document.querySelector(".section_img")
-    pincipal.style.display = "none"
-
-    //obtenemos el panel de los botones de reserva
-    let botones = document.querySelector(".action-buttons")
-    botones.style.display = "flex"
-})
 
 
 
-/*SECCION DEL PANEL DE RESERVACION*/
-//obtenemos los botones
-let botonRegistrar = document.querySelector(".boton_registro")
 
-//añadimos el evento al boton reservar, para que se despliegue el menu de reserva
-botonRegistrar.addEventListener("click", () =>{
-
-    //obtenemos el panel de reservacion
-    let registro = document.querySelector(".registro-panel")
-    //hacemos que se renderice
-    registro.style.display = "flex";
-
-    //obtenemos el panel pincipal
-    let pincipal = document.querySelector(".section_img")
-    pincipal.style.display = "none"
-
-    //obtenemos el panel de los botones de reserva
-    let botones = document.querySelector(".action-buttons")
-    botones.style.display = "flex"
-})
-
-
-/*BOTON VOLVER para ambos paneles*/ 
-// Obtenemos todos los botones de volver
-let botonesVolver = document.querySelectorAll(".boton-volver");
-
-// Añadimos el evento a cada botón de volver
-botonesVolver.forEach(boton => {
-    boton.addEventListener("click", () => {
-        // Obtenemos el panel principal
-        let principal = document.querySelector(".section_img");
-        // Mostramos el panel principal
-        principal.style.display = "flex";
-
-        // Obtenemos el panel de los botones de reserva
-        let botones = document.querySelector(".action-buttons");
-        botones.style.display = "flex";
-
-        // Obtenemos todos los paneles que pueden estar visibles y los ocultamos
-        let paneles = document.querySelectorAll(".reservation-panel, .registro-panel");
-        paneles.forEach(panel => {
-            panel.style.display = "none";
-        });
-        borrarFormularioReserva()
-    });
-});
-
-
-
-//obtenemos los botones
-//guarda y redirige a panel de costos
-let botonVolverReserva = document.querySelector(".boton-volver-reserva")
-//añadimos el evento al boton editar reserva, para que se despliegue el menu de reserva
-botonVolverReserva.addEventListener("click", () =>{
-    
-
-    //obtenemos el panel de reservacion
-    let costo = document.querySelector(".costos-panel")
-    //hacemos que se renderice
-    costo.style.display = "none";
-    
-    //obtenemos el panel pincipal
-    let registro = document.querySelector(".reservation-panel")
-    registro.style.display = "flex"
-
-    //obtenemos el panel de los botones de reserva
-    //let botones = document.querySelector(".action-buttons")
-    //botones.style.display = "flex"
-})
 
 /*
 
@@ -292,7 +203,8 @@ var inputAdultos = document.querySelector("#adults")
 var inputNiños = document.querySelector("#children")
 var inputInfantes = document.querySelector("#infants")
 
-//agregamos las validaciones al boton guardar del panel de reserva
+//agregamos las validaciones al boton guardar del panel de reserva y declaramos globalmente la columna del pago con porcentaje
+var tablaPagoPorcentaje = document.querySelector("#tablaPagoPorcentaje")
 var inputGuardarReserva = document.querySelector("#botonGuardarReserva")
 //agregamos el evento al boton guardar
 inputGuardarReserva.addEventListener("click" ,()=>{
@@ -317,14 +229,6 @@ inputGuardarReserva.addEventListener("click" ,()=>{
         return null
     }
     else{
-        //obtenemos el panel de reservacion
-        let costo = document.querySelector(".costos-panel")
-        //hacemos que se renderice
-        costo.style.display = "flex";
-
-        //obtenemos el panel pincipal
-        let registro = document.querySelector(".reservation-panel")
-        registro.style.display = "none"
 
         //Primero obtenemos las entradas de las tablas
         let tablaMaletaRegistrada = document.querySelector("#tablaMaletaRegistrada")
@@ -338,7 +242,6 @@ inputGuardarReserva.addEventListener("click" ,()=>{
         let tablaInfante = document.querySelector("#tablaInfante")
         let tablaInfantePago = document.querySelector("#tablaInfantePago")
         let tablaPago = document.querySelector("#tablaPago")
-        let tablaPagoPorcentaje = document.querySelector("#tablaPagoPorcentaje")
         let tablaTipoAsiento = document.querySelector("#tablaTipoAsiento")
         let tablaPorcentaje = document.querySelector("#tablaPorcentaje")
 
@@ -353,9 +256,18 @@ inputGuardarReserva.addEventListener("click" ,()=>{
         tablaAdulto.textContent = inputAdultos.value
         tablaNiño.textContent = inputNiños.value
         tablaInfante.textContent = inputInfantes.value
-        
+        despuesDePagar()
     }
 });
+
+//programamos el boton volver de la secccion de registro
+let botonVolerSeccionReserva = document.querySelector(".boton-volver-seccion-reservacion")
+botonVolerSeccionReserva.addEventListener("click", ()=>{
+    let panelPrincipal1 = document.querySelector(".section_img")
+    let panelReserva1 = document.querySelector(".reservation-panel")
+    panelPrincipal1.style.display = "flex"
+    panelReserva1.style.display = "none"
+})
 
 //Funcion que suma la cantidad de pasajeros
 function sumarPasajeros() {
@@ -437,9 +349,11 @@ asientosHTML.forEach(asiento => {
 
 
 // cremaos el objeto ReservaPersona
+var listaReservas = []
+console.log("Estefan")
 var contadorReservas = 1
 class ReservaPersona{
-    constructor(nombre,telefono,pasaporte,correo,tipoAsiento,equipajeRegistrado,equipajeMano,boletoAdulto,boletoNiño,boletoInfante,asiento ,pago){
+    constructor(nombre,telefono,pasaporte,correo,tipoAsiento,equipajeRegistrado,equipajeMano,boletoAdulto,boletoNiño,boletoInfante,asiento ,cantidadAsientos ,pago){
         this.nombre = nombre;
         this.telefono = telefono;
         this.pasaporte = pasaporte;
@@ -451,8 +365,85 @@ class ReservaPersona{
         this.boletoNiño = boletoNiño;
         this.boletoInfante = boletoInfante;
         this.asiento = asiento;
+        this.cantidadAsientos = cantidadAsientos;
         this.pago = pago;
-        this.identificador = `personaReserva${contadorReservas}`
+        this.identificador = `ticket${contadorReservas}`
         contadorReservas += 1;
     }
 }
+
+function despuesDePagar(){
+    //guardamos la informacion de la reserva en el array
+
+    let nuevaReserva = new ReservaPersona(new String(inputContacto.value) , new String(inputTelefono.value) , new String(inputPasaporte.value) , new String(inputCorreo.value) , new String(inputTipoAsiento.value) , new String(inputEquipajeRegistrado.value) , new String(inputEquipajeMano.value ), new String(inputAdultos.value ), new String(inputNiños.value ), new String(inputInfantes.value) , new String(inputAsientos.value ), new Number(sumarPasajeros()) ,"500$")
+    listaReservas.push(nuevaReserva)
+    console.log(listaReservas)
+    //Pasamos los asientos seleccionados a ocupados
+    asientosHTML.forEach(asiento => {
+        if (asiento.classList.contains("seleccionado")){
+            asiento.classList.add("ocupado")
+            asiento.classList.remove("seleccionado")
+        }
+        
+    })
+    borrarFormularioReserva()
+}
+
+function despuesBotonRegistro(){
+    let fragmento = document.createDocumentFragment()
+    let tablaRegistro = document.querySelector("#tablaRegistro")
+    if(listaReservas.length != 0){
+        listaReservas.forEach(reserva =>{
+            //creamos las entradas de esta fila
+            let fila = document.createElement("TR")
+            fila.classList.add(reserva.identificador)
+            let tdPasajero = document.createElement("TD")
+            let tdEquipajeRegistrado = document.createElement("TD")
+            let tdEquipajeMano = document.createElement("TD")
+            let tdCantidadAsientos = document.createElement("TD")
+            let tdAsientos = document.createElement("TD")
+
+            //parte de los botones
+            // Crear elementos HTML
+            var tdVer = document.createElement('td');
+            var tdEliminar = document.createElement('td');
+            var botonVer = document.createElement('button');
+            var botonEliminar = document.createElement('button');
+
+            // Agregar clases a los botones
+            botonVer.className = 'boton-ver';
+            botonEliminar.className = 'boton-eliminar';
+
+            // Agregar texto a los botones
+            botonVer.textContent = 'Ver';
+            botonEliminar.textContent = 'X';
+            tdVer.appendChild(botonVer)
+            tdEliminar.appendChild(botonEliminar)
+
+            //rellenamos los datos
+            tdPasajero.textContent = reserva.nombre
+            tdEquipajeRegistrado.textContent = reserva.equipajeRegistrado
+            tdEquipajeMano.textContent = reserva.equipajeMano
+            tdCantidadAsientos.textContent = reserva.cantidadAsientos
+            tdAsientos.textContent = reserva.asiento
+
+            //agregamos los datos a la fila
+            fila.appendChild(tdPasajero)
+            fila.appendChild(tdEquipajeRegistrado)
+            fila.appendChild(tdEquipajeMano)
+            fila.appendChild(tdCantidadAsientos)
+            fila.appendChild(tdAsientos)
+            fila.appendChild(tdVer)
+            fila.appendChild(tdEliminar)
+            fragmento.appendChild(fila)
+        })
+    } //aqui termina el if
+    tablaRegistro.innerHTML = ""
+    tablaRegistro.appendChild(fragmento)
+
+}
+
+let botonRegistro = document.querySelector(".boton_registro")
+botonRegistro.addEventListener("click", ()=>{
+    despuesBotonRegistro()
+})
