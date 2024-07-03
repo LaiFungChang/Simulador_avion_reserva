@@ -519,3 +519,7 @@
 .seat.seleccionado {
   background-color: rgb(54, 3, 196);
 }
+
+.seat.deshabilitado{
+  background-color: #858585;
+}

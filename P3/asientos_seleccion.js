@@ -93,6 +93,8 @@ botonGuardar.addEventListener("click", () =>{
     //obtenemos el panel de los botones de reserva
     //let botones = document.querySelector(".action-buttons")
     //botones.style.display = "flex"
+
+    
 })
 
 //obtenemos los botones
@@ -302,6 +304,35 @@ inputBorrarReserva.addEventListener("click" , ()=>{
 
 })
 
+var inputTipoAsiento = document.querySelector("#tipoAsiento")
+inputTipoAsiento.addEventListener("change", ()=>{
+    //quitamos el estado de deshabilitado primero
+    asientosHTML.forEach(asiento =>{
+        asiento.classList.remove("deshabilitado")
+    })
+    let valorTipoAsiento = inputTipoAsiento.value;
+    if (valorTipoAsiento == "Economico plus"){
+        asientosHTML.forEach(asiento => {
+            if (!asiento.classList.contains("plus")){
+                asiento.classList.add("deshabilitado");
+        }})
+    }
+    else if (valorTipoAsiento == "Economico bajo"){
+        asientosHTML.forEach(asiento => {
+            if(!asiento.classList.contains("bajo")){
+                asiento.classList.add("deshabilitado")
+            }
+        })
+    }
+    else if(valorTipoAsiento == "Economico normal"){
+        asientosHTML.forEach(asiento =>{
+            if(asiento.classList.contains("bajo") || asiento.classList.contains("plus")){
+                asiento.classList.add("deshabilitado")
+            }
+        })       
+    }
+})
+
 
 
 //Funcion que suma la cantidad de pasajeros
@@ -344,7 +375,6 @@ asientosHTML.forEach(asiento => {
 
         //Obtenemos el asiento que desencadeno el evento
         var asientoDelEvento = e.target
-
         //verificamos si el asiento ya esta seleccionado para deseleccionarlo
         if (asientoDelEvento.classList.contains("seleccionado") ) {
             asientoDelEvento.classList.remove("seleccionado");
@@ -353,8 +383,8 @@ asientosHTML.forEach(asiento => {
             return null
         }
 
-        //verifica si el asiento esta ocupado, para que no haga nada
-        if (asientoDelEvento.classList.contains("ocupado")) {
+        //verifica si el asiento esta ocupado o deshabilitdao, para que no haga nada
+        if (asientoDelEvento.classList.contains("ocupado") || asientoDelEvento.classList.contains("deshabilitado")) {
             return null
         }
 

@@ -51,10 +51,11 @@
               <div class="luggage-column">
                 <div class="luggage-panel">
                   <label for="tipoAsiento">Seleccione el tipo de asiento:</label>
-                  <select id="tipoAsiento" onchange="mostrarSeleccion()">
+                  <select id="tipoAsiento">
                     <option value="" selected disabled hidden>Seleccione...</option>
-                    <option value="ejecutivo">Ejecutivo</option>
-                    <option value="economico">Económico</option>
+                    <option value="Economico bajo">Economico bajo</option>
+                    <option value="Economico normal">Economico normal</option>
+                    <option value="Economico plus">Economico plus</option>
                   </select>
 
                   <label id="seleccionado"></label>
@@ -228,42 +229,42 @@
                   <div class="seat-row">
                     <span class="seat-number">41</span>
                     <div class="seat-group">
-                      <span class="seat" data-value="A41"></span>
-                      <span class="seat" data-value="B41"></span>
-                      <span class="seat" data-value="C41">C</span>
-                      <span class="seat" data-value="D41">D</span>
-                      <span class="seat" data-value="F41">F</span>
-                      <span class="seat" data-value="G41">G</span>
-                      <span class="seat" data-value="H41"></span>
-                      <span class="seat" data-value="J41"></span>
+                      <span class="seat plus" data-value="A41"></span>
+                      <span class="seat plus" data-value="B41"></span>
+                      <span class="seat plus" data-value="C41">C</span>
+                      <span class="seat plus" data-value="D41">D</span>
+                      <span class="seat plus" data-value="F41">F</span>
+                      <span class="seat plus" data-value="G41">G</span>
+                      <span class="seat plus" data-value="H41"></span>
+                      <span class="seat plus" data-value="J41"></span>
                     </div>
                   </div>
 
                   <div class="seat-row">
                     <span class="seat-number">42</span>
                     <div class="seat-group">
-                      <span class="seat" data-value="A42"></span>
-                      <span class="seat" data-value="B42"></span>
-                      <span class="seat" data-value="C42"></span>
-                      <span class="seat" data-value="D42"></span>
-                      <span class="seat" data-value="F42"></span>
-                      <span class="seat" data-value="G42"></span>
-                      <span class="seat" data-value="H42"></span>
-                      <span class="seat" data-value="J42"></span>
+                      <span class="seat plus" data-value="A42"></span>
+                      <span class="seat plus" data-value="B42"></span>
+                      <span class="seat plus" data-value="C42"></span>
+                      <span class="seat plus" data-value="D42"></span>
+                      <span class="seat plus" data-value="F42"></span>
+                      <span class="seat plus" data-value="G42"></span>
+                      <span class="seat plus" data-value="H42"></span>
+                      <span class="seat plus" data-value="J42"></span>
                     </div>
                   </div>
                   
                   <div class="seat-row">
                     <span class="seat-number">43</span>
                     <div class="seat-group">
-                      <span class="seat" data-value="A43"></span>
-                      <span class="seat" data-value="B43"></span>
-                      <span class="seat" data-value="C43"></span>
-                      <span class="seat" data-value="D43"></span>
-                      <span class="seat" data-value="F43"></span>
-                      <span class="seat" data-value="G43"></span>
-                      <span class="seat" data-value="H43"></span>
-                      <span class="seat" data-value="J43"></span>
+                      <span class="seat bajo" data-value="A43"></span>
+                      <span class="seat bajo" data-value="B43"></span>
+                      <span class="seat bajo" data-value="C43"></span>
+                      <span class="seat bajo" data-value="D43"></span>
+                      <span class="seat bajo" data-value="F43"></span>
+                      <span class="seat bajo" data-value="G43"></span>
+                      <span class="seat bajo" data-value="H43"></span>
+                      <span class="seat bajo" data-value="J43"></span>
                     </div>
                   </div>
                   
@@ -271,10 +272,10 @@
                     <span class="seat-number">44</span>
                     <div class="seat-group">
                       <span class="area-sanitarios-insumos"></span>
-                      <span class="seat" data-value="C44"></span>
-                      <span class="seat" data-value="D44"></span>
-                      <span class="seat" data-value="F44"></span>
-                      <span class="seat" data-value="G44"></span>
+                      <span class="seat bajo" data-value="C44"></span>
+                      <span class="seat bajo" data-value="D44"></span>
+                      <span class="seat bajo" data-value="F44"></span>
+                      <span class="seat bajo" data-value="G44"></span>
                       <span class="area-sanitarios-insumos"></span>
                     </div>
                   </div>
@@ -282,10 +283,10 @@
                   <div class="seat-row">
                     <span class="seat-number">45</span>
                     <div class="seat-group">
-                      <span class="seat" data-value="C45"></span>
-                      <span class="seat" data-value="D45"></span>
-                      <span class="seat" data-value="F45"></span>
-                      <span class="seat" data-value="G45"></span>
+                      <span class="seat bajo" data-value="C45"></span>
+                      <span class="seat bajo" data-value="D45"></span>
+                      <span class="seat bajo" data-value="F45"></span>
+                      <span class="seat bajo" data-value="G45"></span>
                     </div>
                   </div>
                   
@@ -369,49 +370,49 @@
                 <tr>
                     <td class="left-align">Maleta Registrada</td>
                     <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td id="tablaMaletaRegistrada">0</td>
+                    <td id="tablaMaletaRegistradaPago">0</td>
                 </tr> 
                 <!--fila 2-->
                 <tr>
                   <td class="left-align">Maleta de Mano</td>
                   <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
+                  <td id="tablaMaletaMano">0</td>
+                  <td id="tablaMaletaManoPago">0</td>
                 </tr> 
                 <!--fila 3-->
                 <tr>
                   <td class="left-align">Adulto </td>
                   <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
+                  <td id="tablaAdulto">0</td>
+                  <td id="tablaAdultoPago">0</td>
               </tr> 
               <!--fila 4-->
               <tr>
                 <td class="left-align">Niños </td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td id="tablaNiño">0</td>
+                <td id="tablaNiñoPago">0</td>
             </tr> 
             <!--fila 5-->
             <tr>
               <td class="left-align">Infantes </td>
               <td>0</td>
-              <td>0</td>
-              <td>0</td>
+              <td id="tablaInfante">0</td>
+              <td id="tablaInfantePago">0</td>
           </tr> 
           <!--fila 6-->
           <tr>
             <td class="left-align">Total </td>
             <td>0</td>
             <td>0</td>
-            <td>0</td>
+            <td id="tablaPago">0</td>
         </tr> 
             </tbody>
              <!--fila 7-->
           <tr>
             <td class="left-align">Total + clase %</td>
-            <td>0</td>
+            <td id="TablaPagoPorcentaje">0</td>
 
         </tr> 
             </tbody>
