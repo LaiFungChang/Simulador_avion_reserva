@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOLYSKY</title>
     <link rel="stylesheet" href="styleSheets.css">
+    
 </head>
 
 <body>
     <section class="flight-reservation">
-        <header class="header">HOLYSKY</header>
+        <header class="header" style="box-shadow: 0 2px 0 0 rgb(236, 236, 236);">HOLYSKY</header>
         <section class="section_img" style="display: flex;">
           <img src="image_cloud.png" alt="" class="hero-image" />
           <div class="content_img">
@@ -23,7 +24,9 @@
         </section>
         <main class="reservation-panel" style="display: none;">
           <form class="reservation-form">
-            <button type="button" class="boton-volver-seccion-reservacion" id ="botonVolverResInicio">volver</button>
+            <button type="button" class="boton-volver-seccion-reservacion" id="botonVolverResInicio">
+              <img src="volver_icon.png" alt="Ícono Volver" class="icono-volver">
+            </button>
             <h2 class="form-title">Reserva de vuelo</h2>
             <div class="form-row">
               <div class="columna_izq">
@@ -50,12 +53,12 @@
             <div class="luggage-row">
               <div class="luggage-column">
                 <div class="luggage-panel">
-                  <label for="tipoAsiento">Seleccione el tipo de asiento:</label>
-                  <select id="tipoAsiento">
-                    <option value="" selected disabled hidden>Seleccione...</option>
-                    <option value="Economico bajo">Economico bajo</option>
-                    <option value="Economico normal">Economico normal</option>
-                    <option value="Economico plus">Economico plus</option>
+                  <label for="tipoAsiento" class="luggage-item">Seleccione el tipo de asiento:</label>
+                  <select id="tipoAsiento" class="lista-despegable">
+                    <option value="" selected disabled hidden class="lista-despegable">Seleccione una clase</option>
+                    <option value="Economico bajo" style="text-align: left;">Economico Ligero</option>
+                    <option value="Economico normal" style="text-align: left;">Economico Ejecutivo</option>
+                    <option value="Economico plus" style="text-align: left;">Economico Premium</option>
                   </select>
 
                   <label id="seleccionado"></label>
@@ -306,7 +309,10 @@
       </main>
         <!--TABLA DE REGISTRO-->
         <section class="registro-panel" style="display: none;">
-          <button class="boton-volver-tabla-registro">volver</button>
+       
+          <button type="button" class="boton-volver-tabla-registro" style="margin-top: 20px;">
+            <img src="volver_icon.png" alt="Ícono Volver" class="icono-volver">
+          </button>
           <table>
             <thead>
               <!--Encabezado de tabla de registro-->
@@ -314,9 +320,8 @@
                     <th class="left-align">Pasajero</th>
                     <th class="columna-cantidades">Equipaje Registrado</th>
                     <th class="columna-cantidades">Equipaje de Mano</th>
-                    <th class="columna-cantidades" style="width: 80px;">Cantidad de Asientos</th>
+                    <th class="columna-cantidades">Cantidad de Asientos</th>
                     <th>Asiento(s)</th>
-                    <th class="columna-botones"></th>
                     <th class="columna-botones"></th>
                 </tr>
             </thead>
@@ -327,7 +332,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>A31</td>
-                    <td><button class="boton-ver">Ver</button></td>
                     <td><button class="boton-eliminar">X</button></td>
                 </tr>         
             </tbody>
@@ -357,9 +361,9 @@
                 <tr>
                     <th class="left-align">Cargos</th>
                     <th class="columna-cantidades">Costo (CNY)</th>
-                    <th class="columna-cantidades" style="width: 80px;">Cantidad (unid)</th>
-                    <th class="columna-cantidades">Monto(cny)</th>
-                    <th class="columna-cantidades">Descripcion</th>
+                    <th class="columna-cantidades">Cantidad (unid)</th>
+                    <th class="columna-cantidades">Descripcion </th>
+                    <th class="columna-cantidades">Costo x maleta</th>
                 </tr>
             </thead>
             <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
@@ -368,36 +372,37 @@
                     <td class="left-align">Maleta Registrada</td>
                     <td>436.21</td>
                     <td id="tablaMaletaRegistrada">0</td>
-                    <td id="tablaMaletaRegistradaPago">0</td>
                     <td id="tablaMaletaRegistradaPago">explica caracteristicas de maleta</td>
+                    <td id="tablaMaletaRegistradaPago">0</td>
+                    
                 </tr> 
                 <!--fila 2-->
                 <tr>
                   <td class="left-align">Maleta de Mano</td>
                   <td>218.11</td>
                   <td id="tablaMaletaMano">0</td>
-                  <td id="tablaMaletaManoPago">0</td>
+                  <td id="tablaMaletaRegistradaPago">explica caracteristicas de maleta</td>
+                  <td id="tablaMaletaRegistradaPago">0</td>
                 </tr> 
                 <!--fila 3-->
                 <tr>
                   <td class="left-align">Adulto </td>
                   <td>843.34</td>
                   <td id="tablaAdulto">0</td>
-                  <td id="tablaAdultoPago">0</td>
+                  <td id="tablaInfantePago">servicios de aerolinea</td>
               </tr> 
               <!--fila 4-->
               <tr>
                 <td class="left-align">Niños </td>
                 <td>814.26</td>
                 <td id="tablaNiño">0</td>
-                <td id="tablaNiñoPago">0</td>
+                <td id="tablaInfantePago">servicios de aerolinea</td>
             </tr> 
             <!--fila 5-->
             <tr>
               <td class="left-align">Infantes </td>
               <td>799.72</td>
               <td id="tablaInfante">0</td>
-              <td id="tablaInfantePago">0</td>
               <td id="tablaInfantePago">servicios de aerolinea</td>
           </tr> 
           
@@ -405,8 +410,7 @@
           <tr>
             <td class="left-align">Total </td>
             <td>0</td>
-            <td>0</td>
-            <td id="tablaPago">0</td>
+            
         </tr>           
         </tbody>
         </table>
@@ -415,7 +419,7 @@
         <button class="boton-aceptar">Aceptar reserva</button>
         </section>
         <!--PANEL DE PAGO-->
-        <section class="payment-method">
+        <section class="payment-method" style="display: none;">
           <div class="payment-container">
             <div class="payment-content">
               <div class="payment-options">

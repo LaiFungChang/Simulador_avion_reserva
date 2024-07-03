@@ -14,7 +14,7 @@ botonReservarPanelPrincipal.addEventListener("click", ()=>{
     let panelPrincipal = document.querySelector(".section_img")
     panelPrincipal.style.display = "none"
     let panelReserva = document.querySelector(".reservation-panel")
-    panelReserva.style.display = "flex"
+    panelReserva.style.display = "block"
 })
 
 //boton registro panel principal
@@ -23,7 +23,7 @@ botonRegistroPanelPrincipal.addEventListener("click", ()=>{
     let panelPrincipal = document.querySelector(".section_img")
     panelPrincipal.style.display = "none"
     let panelRegistro = document.querySelector(".registro-panel")
-    panelRegistro.style.display = "flex"
+    panelRegistro.style.display = "block"
     despuesBotonRegistro()
 
 })
@@ -44,7 +44,7 @@ botonVolverPanelCostos.addEventListener("click" , ()=>{
     let panelCostos = document.querySelector(".costos-panel")
     panelCostos.style.display = "none"
     let panelReserva = document.querySelector(".reservation-panel")
-    panelReserva.style.display = "flex"
+    panelReserva.style.display = "block"
 })
 
 /* Panel de registro */
@@ -286,7 +286,7 @@ inputGuardarReserva.addEventListener("click" ,()=>{
         let panelReservacion = document.querySelector(".reservation-panel")
         panelReservacion.style.display = "none"
         let panelCostos = document.querySelector(".costos-panel")
-        panelCostos.style.display = "flex"
+        panelCostos.style.display = "block"
 
 
         //Primero obtenemos las entradas de las tablas

@@ -1,3 +1,8 @@
+body {
+  justify-content: center; 
+  align-items: center;
+  overflow-x: hidden;
+}
 .flight-reservation {
     background-color: #fff;
     display: flex;
@@ -69,27 +74,34 @@
   }
   
   .boton_registro,.boton_reservar {
-    background-color: white;
-    color: rgb(22, 81, 128, 1);
-    border: 3px solid rgba(22, 81, 128, 1);
+    background-color: rgba(255, 255, 255, 0.254);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 4px 0 rgba(22, 81, 128, 1);
     font-family: Inter, sans-serif;
     padding: 12px;
     width: 90px;
   }
   
+  .boton_registro:hover, .boton_reservar:hover{
+    background-color: #f7f7f7;
+    color: rgba(22, 81, 128);
+  }
   /*TRANSFORMACION*/
   .boton_registro:hover,
-  .boton_reservar:hover, .boton-borrar:hover, .boton-guardar:hover
-  .boton-volver:hover, .boton-ver:hover, .boton-eliminar:hover,
-  .boton-volver-reserva, .boton-aceptar
+  .boton_reservar:hover, .boton-borrar:hover, .boton-guardar:hover, .boton-eliminar:hover,
+  .boton-volver-seccion-reservacion:hover, .boton-aceptar:hover, .boton-pagar:hover,
+  .boton-volver-tabla-registro:hover
   {
       transform: scale3d(1.1,1.1,1);
       transition: 0.10s;
+      box-shadow: 0 4px 4px 0 rgba(22, 81, 128, 1);
+      transition: all 0.5s;
   }
 
   /*panel de reserva*/
+ 
   .reservation-panel {
     align-self: center;
     background-color: #fff;
@@ -108,6 +120,9 @@
     padding: 20px;
     max-width: 100%;
     width: 700px;
+    
+    justify-content: center; 
+    align-items: center;
   }
   
   .form-row {
@@ -162,18 +177,12 @@
     padding: 12px 16px;
   }
   
-  .form-divider {
-    background-color: var(--Schemes-Outline-Variant, #cac4d0);
-    border: 1px solid rgb(217, 217, 217);
-    height: 1px;
-    margin-top: 15px;
-  }
-  
+
   .luggage-section {
     color: #000;
     font: 400 24px/133% Roboto, sans-serif;
     letter-spacing: 0;
-    margin: 47px 0 0 70px;
+    margin: 47px 0 0 0;
   }
   
   .luggage-container {
@@ -205,10 +214,9 @@
   
   .luggage-item {
     font-family: Inter, sans-serif;
-    
   }
   
-  .luggage-input {
+  .luggage-input, .lista-despegable{
     background-color: var(--sds-color-background-default-default);
     border: 1px solid rgba(217, 217, 217, 1);
     border-radius: 5px;
@@ -220,6 +228,9 @@
     text-align: right;
   }
    
+  .lista-despegable {
+    text-align: left;
+  }
   .seat-map {
     align-items: start;
     background-color: #fff;
@@ -255,9 +266,10 @@
     gap: 0;
 }
 
+
 .seat {
     background-color: #ffffff;
-    border: 1px solid rgba(69, 40, 145, 1);
+    border: 1px solid rgb(32, 1, 110);
     border-radius: 5px;
     font-family: Montserrat, sans-serif;
     justify-content: center;
@@ -290,7 +302,7 @@
 */
 
 .area-sanitarios-insumos {
-    background-color: #2490e7;
+    background-color: #2292ee;
     border-radius: 5px;
     width: 41px;
 }
@@ -336,45 +348,68 @@
 }
  
 
-  .action-buttons, .boton-volver {
-    align-self: center;
+  .action-buttons{
     display: flex;
     font-size: 14px;
     font-weight: 500;
-    gap: 25px;
-    justify-content: space-between;
+    gap: 20px;
     letter-spacing: 0.1px;
     line-height: 143%;
-    margin-top: 70px;
-    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
     white-space: nowrap;
+    justify-content: center;
+
+    margin-left: 20%;
   }
   
-  .boton-borrar, .boton-guardar{
-    background-color: #452891;
-    border-radius: 10px;
-    border-color: #c9e1ff;
-    color: var(--Schemes-On-Primary, #fff);
-    font-family: Roboto, sans-serif;
-    justify-content: center;
-    height: 45px;
-    width: 100px;
+
+  /*BOTONES*/
+  .boton-borrar, .boton-guardar
+  {
+    width: 90px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0px 5px 0 #d7d7d7;
+    height: 35px;
+    margin-top: 20px;
+    color: #3403b0;
+    margin-left: 10px;
+    gap: 0px;
   }
+  
+  .boton-volver-tabla-registro, .boton-volver-seccion-reservacion{
+      background-color: #ffffff;
+      border: 3px solid #3403b0;
+      border-radius: 50px;
+      font-family: Inter, sans-serif;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+  }
+  .boton-volver-seccion-reservacion i, .boton-volver-tabla-registro i {
+    font-size: 16px; /* Tamaño del ícono */
+  }
+
   /*panel de registro*/
   .registro-panel{
     /* Esto es en realidad el valor predeterminado, pero asegúrate de que no esté configurado en flex */
     display: block;
   }
-  .registro-panel button,
+
   .registro-panel table {
     display: block;
     width: 100%; /* Opcional: hace que el botón y la tabla ocupen todo el ancho del contenedor */
     margin-bottom: 10px; /* Opcional: agrega espacio entre el botón y la tabla */
   }
 
-
+/*TABLAS DE RESERVA Y COSTOS*/
   table {
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
     margin-top: 30px;
   }
@@ -387,6 +422,7 @@
   
   th.left-align, td.left-align {
     text-align: left; /* Override alignment for the first column */
+    width: 45%;
   }
   
   th {
@@ -398,10 +434,10 @@
     font: 14px Inter, sans-serif;
   }
   .columna-cantidades{
-    width: 40px;
+    width: 10%;
   }
   .columna-botones {
-    width: 10px;
+    width: 5%;
   }
   .boton-eliminar {
     background-color: rgb(200, 0, 0);
@@ -409,12 +445,9 @@
     color: white;
     border-radius: 3px;
   }
-  .boton-ver {
-    background-color: rgb(7, 200, 0);
-    border: 2px solid rgb(7, 200, 0);
-    color: white;
-    border-radius: 3px;
-  }
+ 
+
+
 /*PANEL DE PAGO*/
 .payment-method {
   display: flex;
@@ -425,6 +458,7 @@
   background-color: #fff;
   width: 55%;
   align-self: center;
+
 }
 
 .payment-container {
@@ -434,6 +468,7 @@
   margin-top: 9px;
   border: 1px solid #d9d9d9;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
 .payment-content {
@@ -492,7 +527,7 @@
 .card-form {
   border: 1px solid #b9b9b9;
   margin-top: 50px;
-  width: 400px;
+  width: 430px;
   max-width: 100%;
   padding: 30px 61px;
   align-self: center;
@@ -515,41 +550,27 @@
 .form-date-input,
 .form-security-input 
 {
-width: 100%;
+width: 93%;
 margin-bottom: 5px;
-}
-
-.form-input-digitos-tarjeta, .form-input-nombre-tarjeta {
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  background-color: #fff;
-  margin-top: 8px;
-  padding: 12px 15px;
-  color: #757575;
-  line-height: 100%;
-  text-align: right;
-}
-
-.form-date-input {
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  background-color: #fff;
-  margin-top: 8px;
-  height: 40px;
-}
-
-.form-security-input {
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  background-color: #fff;
-  margin-top: 8px;
-  height: 40px;
+border-radius: 4px;
+border: 1px solid #d9d9d9;
+background-color: #fff;
+margin-top: 8px;
+height: 40px;
+padding: 0px 15px;
+line-height: 100%;
+align-items: center;
 }
 
 .boton-pagar{
-  margin-top: 20px;
+  margin-top: 30px;
   align-items: center;
   width: 100%;
+  height: 35px;
+  background-color:  rgb(54, 3, 196);
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
 }
 
 
@@ -628,8 +649,8 @@ margin-bottom: 5px;
     }
   
     .form-divider {
-      max-width: 100%;
-      margin-top: 40px;
+      max-width: 90%;
+      margin-top: 50px;
     }
   
     .luggage-section {
@@ -689,6 +710,8 @@ margin-bottom: 5px;
 }
 
 .seat.deshabilitado{
-  background-color: #858585;
+  background-color: #e4e4e450;
+  border:  #ffffff;
+  color: #ffffff;
 }
 
