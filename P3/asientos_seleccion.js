@@ -3,6 +3,26 @@ contains(class) --> verifica si el elemento tiene esa clase, si la tiene devuelv
 e.target
 */
 
+function borrarFormularioReserva(){
+    
+    //procedemos a borrar cada valor de los inputs
+    inputContacto.value = ""
+    inputPasaporte.value = ""
+    inputTelefono.value = ""
+    inputCorreo.value = ""
+    inputEquipajeRegistrado.value = "0"
+    inputEquipajeMano.value = "0"
+    inputAdultos.value = "0"
+    inputNiños.value = "0"
+    inputInfantes.value = "0"
+    inputAsientos.value = ""
+    asientosHTML.forEach((asiento) =>{
+        asiento.classList.remove("seleccionado")
+        asiento.classList.remove("deshabilitado")
+    })
+    inputTipoAsiento.selectedIndex = 0
+}
+
 /* SECCION PRINCIPAL */
 
 //obtenemos los botones
@@ -232,25 +252,8 @@ function validarCorreoElectronico(correo) {
 
 //agregamos la funcion al boton borrar
 var inputBorrarReserva = document.querySelector("#botonBorrarReserva")
-inputBorrarReserva.addEventListener("click" , ()=>{
-
-
-    //procedemos a borrar cada valor de los inputs
-    inputContacto.value = ""
-    inputPasaporte.value = ""
-    inputTelefono.value = ""
-    inputCorreo.value = ""
-    inputEquipajeRegistrado.value = "0"
-    inputEquipajeMano.value = "0"
-    inputAdultos.value = "0"
-    inputNiños.value = "0"
-    inputInfantes.value = "0"
-    inputAsientos.value = ""
-    asientosHTML.forEach((asiento) =>{
-        asiento.classList.remove("seleccionado")
-    })
-
-})
+inputBorrarReserva.addEventListener("click" , borrarFormularioReserva
+)
 
 var inputTipoAsiento = document.querySelector("#tipoAsiento")
 inputTipoAsiento.addEventListener("change", ()=>{
@@ -390,7 +393,9 @@ todosLosInputs.forEach((input)=>{
 //Se le agrega las funcionalidades a cada asiento, para que se puedan elegir, deseleccionar y asi
 asientosHTML.forEach(asiento => {
     asiento.addEventListener("click" , function(e) {
-
+        if (inputTipoAsiento.value != "Economico normal" && inputTipoAsiento.value !="Economico bajo" && inputTipoAsiento.value !="Economico plus"){
+            return null
+        }
         //Obtenemos el asiento que desencadeno el evento
         var asientoDelEvento = e.target
         //verificamos si el asiento ya esta seleccionado para deseleccionarlo
