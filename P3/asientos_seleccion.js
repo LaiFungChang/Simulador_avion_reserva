@@ -91,6 +91,7 @@ botonesVolver.forEach(boton => {
         paneles.forEach(panel => {
             panel.style.display = "none";
         });
+        borrarFormularioReserva()
     });
 });
 
@@ -438,14 +439,20 @@ asientosHTML.forEach(asiento => {
 // cremaos el objeto ReservaPersona
 var contadorReservas = 1
 class ReservaPersona{
-    constructor(nombre,pasaporte,boletoAdultos,boletoNiños,boletoInfantes, pago){
+    constructor(nombre,telefono,pasaporte,correo,tipoAsiento,equipajeRegistrado,equipajeMano,boletoAdulto,boletoNiño,boletoInfante,asiento ,pago){
         this.nombre = nombre;
+        this.telefono = telefono;
         this.pasaporte = pasaporte;
-        this.boletoAdultos = boletoAdultos;
-        this.boletoNiños = boletoNiños;
-        this.boletoInfantes = boletoInfantes;
+        this.correo = correo;
+        this.tipoAsiento = tipoAsiento;
+        this.equipajeRegistrado = equipajeRegistrado;
+        this.equipajeMano = equipajeMano;
+        this.boletoAdulto = boletoAdulto;
+        this.boletoNiño = boletoNiño;
+        this.boletoInfante = boletoInfante;
+        this.asiento = asiento;
         this.pago = pago;
-        this.identificador = `PersonaReserva${contadorReservas}`
+        this.identificador = `personaReserva${contadorReservas}`
         contadorReservas += 1;
     }
 }
