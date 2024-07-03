@@ -235,6 +235,11 @@ inputTipoAsiento.addEventListener("change", ()=>{
     asientosHTML.forEach(asiento =>{
         asiento.classList.remove("deshabilitado")
     })
+    //deshabilitamos los asientos
+    inputAsientos.value = ""
+    asientosHTML.forEach((asiento) =>{
+            asiento.classList.remove("seleccionado")
+    })
     let valorTipoAsiento = inputTipoAsiento.value;
     if (valorTipoAsiento == "Economico plus"){
         asientosHTML.forEach(asiento => {
