@@ -335,23 +335,19 @@
         </section>
         <!--TABLA DE COSTOS-->
         <section class="costos-panel" style="display: none;">
-          
-          <!--tipo de clase de vuelo-->
+          <!--tabla de Informacion del vuelo-->
           <table>
-            <thead>
-              <!--Encabezado de tabla de COSTOS-->
-                <tr>
-                    <th class="left-align">Clase</th>
-                    <th >Porcentaje de costo</th>
-                </tr>
-            </thead>
             <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
-              <!--fila 1-->
+              <!--fila clase-->
                 <tr>
-                    <td class="left-align" id="tablaTipoAsiento"></td>
-                    <td class="left-align" id="tablaPorcentaje"></td>
+                    <td class="left-align">Clase</td>
+                    <td class="left-align" >Economico/light</td>
                 </tr> 
-
+              <!--fila fecha-->
+              <tr>
+                <td class="left-align" >fecha</td>
+                <td class="left-align" >18 junio 2024</td>
+              </tr>
             </tbody>
         </table>
           <!--Info table-->
@@ -359,63 +355,60 @@
             <thead>
               <!--Encabezado de tabla de COSTOS-->
                 <tr>
-                    <th class="left-align">Cargos/servicios</th>
-                    <th class="columna-cantidades">Costo ($)</th>
+                    <th class="left-align">Cargos</th>
+                    <th class="columna-cantidades">Costo (CNY)</th>
                     <th class="columna-cantidades" style="width: 80px;">Cantidad (unid)</th>
-                    <th class="columna-cantidades">Monto($)</th>
+                    <th class="columna-cantidades">Monto(cny)</th>
+                    <th class="columna-cantidades">Descripcion</th>
                 </tr>
             </thead>
             <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
               <!--fila 1-->
                 <tr>
                     <td class="left-align">Maleta Registrada</td>
-                    <td>0</td>
+                    <td>436.21</td>
                     <td id="tablaMaletaRegistrada">0</td>
                     <td id="tablaMaletaRegistradaPago">0</td>
+                    <td id="tablaMaletaRegistradaPago">explica caracteristicas de maleta</td>
                 </tr> 
                 <!--fila 2-->
                 <tr>
                   <td class="left-align">Maleta de Mano</td>
-                  <td>0</td>
+                  <td>218.11</td>
                   <td id="tablaMaletaMano">0</td>
                   <td id="tablaMaletaManoPago">0</td>
                 </tr> 
                 <!--fila 3-->
                 <tr>
                   <td class="left-align">Adulto </td>
-                  <td>0</td>
+                  <td>843.34</td>
                   <td id="tablaAdulto">0</td>
                   <td id="tablaAdultoPago">0</td>
               </tr> 
               <!--fila 4-->
               <tr>
                 <td class="left-align">Niños </td>
-                <td>0</td>
+                <td>814.26</td>
                 <td id="tablaNiño">0</td>
                 <td id="tablaNiñoPago">0</td>
             </tr> 
             <!--fila 5-->
             <tr>
               <td class="left-align">Infantes </td>
-              <td>0</td>
+              <td>799.72</td>
               <td id="tablaInfante">0</td>
               <td id="tablaInfantePago">0</td>
+              <td id="tablaInfantePago">servicios de aerolinea</td>
           </tr> 
-          <!--fila 6-->
+          
+          <!--fila 7-->
           <tr>
             <td class="left-align">Total </td>
             <td>0</td>
             <td>0</td>
             <td id="tablaPago">0</td>
-        </tr> 
-            </tbody>
-             <!--fila 7-->
-          <tr>
-            <td class="left-align">Total + clase %</td>
-            <td id="TablaPagoPorcentaje">0</td>
-
-        </tr> 
-            </tbody>
+        </tr>           
+        </tbody>
         </table>
         <!--REDIRIGE AL PANEL DE RESERVAR FALTA-->
         <button class="boton-volver-reserva">Modificar reserva</button>
