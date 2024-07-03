@@ -74,28 +74,7 @@ botonesVolver.forEach(boton => {
     });
 });
 
-//obtenemos los botones
-//guarda y redirige a panel de costos
-let botonGuardar = document.querySelector(".boton-guardar")
 
-//añadimos el evento al boton reservar, para que se despliegue el menu de reserva
-botonGuardar.addEventListener("click", () =>{
-
-    //obtenemos el panel de reservacion
-    let costo = document.querySelector(".costos-panel")
-    //hacemos que se renderice
-    costo.style.display = "flex";
-
-    //obtenemos el panel pincipal
-    let registro = document.querySelector(".reservation-panel")
-    registro.style.display = "none"
-
-    //obtenemos el panel de los botones de reserva
-    //let botones = document.querySelector(".action-buttons")
-    //botones.style.display = "flex"
-
-    
-})
 
 //obtenemos los botones
 //guarda y redirige a panel de costos
@@ -251,41 +230,10 @@ function validarCorreoElectronico(correo) {
     return regexCorreo.test(correo);
 }
 
-//agregamos las validaciones al boton guardar del panel de reserva
-var inputGuardarReserva = document.querySelector("#botonGuardarReserva")
-//agregamos el evento al boton guardar
-inputGuardarReserva.addEventListener("click" ,()=>{
-    if (inputContacto.value == ""){
-        alert("El contacto es invalido")
-        return null
-    }
-    else if(inputPasaporte.value.length < 9){
-        alert("Pasaporte incompleto")
-        return null
-    }
-    else if(inputTelefono.value.length < 12){
-        alert("telefono incompleto")
-        return null
-    }
-    else if(!validarCorreoElectronico(inputCorreo.value)){
-        alert("Correo invalido")
-        return null
-    }
-    else if(inputAsientos.value.split(" ").length -1 != sumarPasajeros()){
-        alert("Rellene los asientos")
-        return null
-    }
-});
-
 //agregamos la funcion al boton borrar
 var inputBorrarReserva = document.querySelector("#botonBorrarReserva")
 inputBorrarReserva.addEventListener("click" , ()=>{
-    //obtenemos los inputs restantes de la parte de info vuelo
-    let inputEquipajeRegistrado = document.querySelector("#registered-luggage")
-    let inputEquipajeMano = document.querySelector("#hand-luggage")
-    let inputAdultos = document.querySelector("#adults")
-    let inputNiños = document.querySelector("#children")
-    let inputInfantes = document.querySelector("#infants")
+
 
     //procedemos a borrar cada valor de los inputs
     inputContacto.value = ""
@@ -333,7 +281,77 @@ inputTipoAsiento.addEventListener("change", ()=>{
     }
 })
 
+//sacamos el resto de input's
+var inputEquipajeRegistrado = document.querySelector("#registered-luggage")
+var inputEquipajeMano = document.querySelector("#hand-luggage")
+var inputAdultos = document.querySelector("#adults")
+var inputNiños = document.querySelector("#children")
+var inputInfantes = document.querySelector("#infants")
 
+//agregamos las validaciones al boton guardar del panel de reserva
+var inputGuardarReserva = document.querySelector("#botonGuardarReserva")
+//agregamos el evento al boton guardar
+inputGuardarReserva.addEventListener("click" ,()=>{
+    if (inputContacto.value == ""){
+        alert("El contacto es invalido")
+        return null
+    }
+    else if(inputPasaporte.value.length < 9){
+        alert("Pasaporte incompleto")
+        return null
+    }
+    else if(inputTelefono.value.length < 12){
+        alert("telefono incompleto")
+        return null
+    }
+    else if(!validarCorreoElectronico(inputCorreo.value)){
+        alert("Correo invalido")
+        return null
+    }
+    else if(inputAsientos.value.split(" ").length -1 != sumarPasajeros()){
+        alert("Rellene los asientos")
+        return null
+    }
+    else{
+        //obtenemos el panel de reservacion
+        let costo = document.querySelector(".costos-panel")
+        //hacemos que se renderice
+        costo.style.display = "flex";
+
+        //obtenemos el panel pincipal
+        let registro = document.querySelector(".reservation-panel")
+        registro.style.display = "none"
+
+        //Primero obtenemos las entradas de las tablas
+        let tablaMaletaRegistrada = document.querySelector("#tablaMaletaRegistrada")
+        let tablaMaletaRegistradaPago = document.querySelector("#tablaMaletaRegistradaPago")
+        let tablaMaletaMano = document.querySelector("#tablaMaletaMano")
+        let tablaMaletaManoPago = document.querySelector("#tablaMaletaManoPago")
+        let tablaAdulto = document.querySelector("#tablaAdulto")
+        let tablaAdultoPago = document.querySelector("#tablaAdultoPago")
+        let tablaNiño = document.querySelector("#tablaNiño")
+        let tablaNiñoPago = document.querySelector("#tablaNiñoPago")
+        let tablaInfante = document.querySelector("#tablaInfante")
+        let tablaInfantePago = document.querySelector("#tablaInfantePago")
+        let tablaPago = document.querySelector("#tablaPago")
+        let tablaPagoPorcentaje = document.querySelector("#tablaPagoPorcentaje")
+        let tablaTipoAsiento = document.querySelector("#tablaTipoAsiento")
+        let tablaPorcentaje = document.querySelector("#tablaPorcentaje")
+
+        //establecemos los valores de las tablas
+        tablaTipoAsiento.textContent = inputTipoAsiento.value
+        if(inputTipoAsiento.value == "Economico bajo"){tablaPorcentaje.textContent = "-10%"}
+        if(inputTipoAsiento.value == "Economico normal"){tablaPorcentaje.textContent = "0%"}
+        if(inputTipoAsiento.value == "Economico plus"){tablaPorcentaje.textContent = "10%"}
+
+        tablaMaletaRegistrada.textContent = inputEquipajeRegistrado.value
+        tablaMaletaMano.textContent = inputEquipajeMano.value
+        tablaAdulto.textContent = inputAdultos.value
+        tablaNiño.textContent = inputNiños.value
+        tablaInfante.textContent = inputInfantes.value
+        
+    }
+});
 
 //Funcion que suma la cantidad de pasajeros
 function sumarPasajeros() {
