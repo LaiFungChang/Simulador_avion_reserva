@@ -47,6 +47,15 @@ botonVolverPanelCostos.addEventListener("click" , ()=>{
     panelReserva.style.display = "flex"
 })
 
+let botonAceptarPanelCostos = document.querySelector(".boton-aceptar")
+botonAceptarPanelCostos.addEventListener("click" , ()=>{
+    let panelCostos = document.querySelector(".costos-panel")
+    panelCostos.style.display = "none"
+    let panelPago = document.querySelector(".payment-method")
+    panelPago.style.display = "flex"
+
+})
+
 /* Panel de registro */
 let botonVolerPanelRegistro = document.querySelector(".boton-volver-tabla-registro")
 botonVolerPanelRegistro.addEventListener("click", ()=>{
@@ -259,6 +268,9 @@ var inputInfantes = document.querySelector("#infants")
 //agregamos las validaciones al boton guardar del panel de reserva y declaramos globalmente la columna del pago con porcentaje
 var tablaPagoPorcentaje = document.querySelector("#tablaPagoPorcentaje")
 var inputGuardarReserva = document.querySelector("#botonGuardarReserva")
+
+//declaramos una variable que guardo el pago final de la reserva
+var pagoFinal = null
 //agregamos el evento al boton guardar
 inputGuardarReserva.addEventListener("click" ,()=>{
     if (inputContacto.value == ""){
@@ -283,6 +295,9 @@ inputGuardarReserva.addEventListener("click" ,()=>{
     }
     else{
 
+        let tablaTipoClase = document.querySelector(".tipoClaseSeleccionada")
+        console.log(tablaTipoClase)
+
         let panelReservacion = document.querySelector(".reservation-panel")
         panelReservacion.style.display = "none"
         let panelCostos = document.querySelector(".costos-panel")
@@ -290,33 +305,68 @@ inputGuardarReserva.addEventListener("click" ,()=>{
 
 
         //Primero obtenemos las entradas de las tablas
-        
+        let tablaMaletaRegistradaCosto = document.querySelector("#tablaMaletaRegistradaCosto")
         let tablaMaletaRegistrada = document.querySelector("#tablaMaletaRegistrada")
         let tablaMaletaRegistradaPago = document.querySelector("#tablaMaletaRegistradaPago")
+        let tablaMaletaManoCosto = document.querySelector("#tablaMaletaManoCosto")
         let tablaMaletaMano = document.querySelector("#tablaMaletaMano")
         let tablaMaletaManoPago = document.querySelector("#tablaMaletaManoPago")
+        let tablaAdultoCosto = document.querySelector("#tablaAdultoCosto")
         let tablaAdulto = document.querySelector("#tablaAdulto")
         let tablaAdultoPago = document.querySelector("#tablaAdultoPago")
+        let tablaNiñoCosto = document.querySelector("#tablaNiñoCosto")
         let tablaNiño = document.querySelector("#tablaNiño")
         let tablaNiñoPago = document.querySelector("#tablaNiñoPago")
+        let tablaInfanteCosto = document.querySelector("#tablaInfanteCosto")
         let tablaInfante = document.querySelector("#tablaInfante")
         let tablaInfantePago = document.querySelector("#tablaInfantePago")
         let tablaPago = document.querySelector("#tablaPago")
-        let tablaTipoAsiento = document.querySelector("#tablaTipoAsiento")
-        let tablaPorcentaje = document.querySelector("#tablaPorcentaje")
+
+
+        
 
         //establecemos los valores de las tablas
-        tablaTipoAsiento.textContent = inputTipoAsiento.value
-        if(inputTipoAsiento.value == "Economico bajo"){tablaPorcentaje.textContent = "-10%"}
-        if(inputTipoAsiento.value == "Economico normal"){tablaPorcentaje.textContent = "0%"}
-        if(inputTipoAsiento.value == "Economico plus"){tablaPorcentaje.textContent = "10%"}
+        if(inputTipoAsiento.value == "Economico bajo"){
+            tablaTipoClase.textContent = "Economico Ligero"
+            tablaMaletaRegistradaCosto.textContent = "436.21"
+            tablaMaletaManoCosto.textContent = "218.11"
+            tablaAdultoCosto.textContent = "843.34"
+            tablaNiñoCosto.textContent = "814.26"
+            tablaInfanteCosto.textContent = "799.72"
+            
+        }
+        if(inputTipoAsiento.value == "Economico normal"){
+            tablaTipoClase.textContent = "Economico medio"
+            tablaMaletaRegistradaCosto.textContent = "436.21"
+            tablaMaletaManoCosto.textContent = "218.11"
+            tablaAdultoCosto.textContent = "996.02"
+            tablaNiñoCosto.textContent = "981.48"
+            tablaInfanteCosto.textContent = "966.94"
+        }
+        if(inputTipoAsiento.value == "Economico plus"){
+            tablaTipoClase.textContent = "Economico Alto"
+            tablaMaletaRegistradaCosto.textContent = "436.21"
+            tablaMaletaManoCosto.textContent = "218.11"
+            tablaAdultoCosto.textContent = "1235.93"
+            tablaNiñoCosto.textContent = "1221.93"
+            tablaInfanteCosto.textContent = "1206.85"
+        
+        }
 
         tablaMaletaRegistrada.textContent = inputEquipajeRegistrado.value
         tablaMaletaMano.textContent = inputEquipajeMano.value
         tablaAdulto.textContent = inputAdultos.value
         tablaNiño.textContent = inputNiños.value
         tablaInfante.textContent = inputInfantes.value
-        despuesDePagar()
+
+
+        tablaMaletaRegistradaPago.textContent = String((parseFloat(tablaMaletaRegistradaCosto.textContent)* parseFloat(tablaMaletaRegistrada.textContent)).toFixed(2))
+        tablaMaletaManoPago.textContent = String((parseFloat(tablaMaletaManoCosto.textContent)* parseFloat(tablaMaletaMano.textContent)).toFixed(2))
+        tablaAdultoPago.textContent = String((parseFloat(tablaAdultoCosto.textContent)* parseFloat(tablaAdulto.textContent)).toFixed(2))
+        tablaNiñoPago.textContent = String((parseFloat(tablaNiñoCosto.textContent)* parseFloat(tablaNiño.textContent)).toFixed(2))
+        tablaInfantePago.textContent =  String((parseFloat(tablaInfanteCosto.textContent)* parseFloat(tablaInfante.textContent)).toFixed(2))
+        tablaPago.textContent = String((parseFloat(tablaMaletaRegistradaPago.textContent)+ parseFloat(tablaMaletaManoPago.textContent) + parseFloat(tablaAdultoPago.textContent) + parseFloat(tablaNiñoPago.textContent) + parseFloat(tablaInfantePago.textContent)).toFixed(2))
+        pagoFinal = new String(tablaPago.textContent)
     }
 });
 
@@ -428,7 +478,7 @@ class ReservaPersona{
 function despuesDePagar(){
     //guardamos la informacion de la reserva en el array
 
-    let nuevaReserva = new ReservaPersona(new String(inputContacto.value) , new String(inputTelefono.value) , new String(inputPasaporte.value) , new String(inputCorreo.value) , new String(inputTipoAsiento.value) , new String(inputEquipajeRegistrado.value) , new String(inputEquipajeMano.value ), new String(inputAdultos.value ), new String(inputNiños.value ), new String(inputInfantes.value) , new String(inputAsientos.value ), new Number(sumarPasajeros()) ,"500$")
+    let nuevaReserva = new ReservaPersona(new String(inputContacto.value) , new String(inputTelefono.value) , new String(inputPasaporte.value) , new String(inputCorreo.value) , new String(inputTipoAsiento.value) , new String(inputEquipajeRegistrado.value) , new String(inputEquipajeMano.value ), new String(inputAdultos.value ), new String(inputNiños.value ), new String(inputInfantes.value) , new String(inputAsientos.value ), new Number(sumarPasajeros()) ,new String(pagoFinal))
     listaReservas.push(nuevaReserva)
     console.log(listaReservas)
     //Pasamos los asientos seleccionados a ocupados
@@ -491,11 +541,17 @@ function despuesBotonRegistro(){
             fragmento.appendChild(fila)
         })
     } //aqui termina el if
+
+    //Agregamos el evento a los botones
     tablaRegistro.innerHTML = ""
     tablaRegistro.appendChild(fragmento)
     let botonesEliminar = document.querySelectorAll(".boton-eliminar")
     botonesEliminar.forEach(eliminar => {
         eliminar.addEventListener("click", ()=>{
+            let confimarcion = window.confirm("Esta seguro que desea eliminar el registro?")
+            if(!confimarcion){
+                return null
+            }
             let filaPadre = eliminar.parentElement.parentElement
             let ticket = filaPadre.className
             let reservaBorrar = null
@@ -521,3 +577,87 @@ function despuesBotonRegistro(){
 
 }
 
+/*Panel pago*/
+let inputNumeroTarjeta = document.querySelector("#cardNumber")
+
+inputNumeroTarjeta.addEventListener('input', function() {
+    let valor = inputNumeroTarjeta.value;
+    let nuevoValor = '';
+
+    // Iterar sobre cada carácter del valor actual del input
+    for (let i = 0; i < valor.length; i++) {
+        // Verificar si el carácter actual es un dígito
+        if (!isNaN(valor[i]) && valor[i] !== ' ') {
+            // Si es un dígito, añadirlo al nuevo valor
+            nuevoValor += valor[i];
+        }
+    }
+
+    // Limitar la longitud a 16 caracteres
+    if (nuevoValor.length > 16) {
+        nuevoValor = nuevoValor.slice(0, 16); // Cortar el valor a los primeros 16 caracteres
+    }
+
+    // Actualizar el valor del input con el nuevo valor limpio y limitado
+    inputNumeroTarjeta.value = nuevoValor;
+});
+
+let inputFechaVencimientoTarjeta = document.querySelector("#expiryDate")
+let inputCodigoSeguridadTarjeta = document.querySelector("#securityCode")
+inputCodigoSeguridadTarjeta.addEventListener('input', function() {
+    let valor = inputCodigoSeguridadTarjeta.value;
+    let nuevoValor = '';
+
+    // Iterar sobre cada carácter del valor actual del input
+    for (let i = 0; i < valor.length; i++) {
+        // Verificar si el carácter actual es un dígito
+        if (!isNaN(valor[i]) && valor[i] !== ' ') {
+            // Si es un dígito, añadirlo al nuevo valor
+            nuevoValor += valor[i];
+        }
+    }
+
+    // Actualizar el valor del input con el nuevo valor limpio y permitido
+    inputCodigoSeguridadTarjeta.value = nuevoValor;
+});
+
+let inputCardHolder = document.querySelector("#cardHolder");
+inputCardHolder.addEventListener('input', function() {
+    let valor = inputCardHolder.value;
+    let nuevoValor = '';
+
+    // Iterar sobre cada carácter del valor actual del input
+    for (let i = 0; i < valor.length; i++) {
+        let char = valor.charAt(i);
+        // Verificar si el carácter actual es una letra (mayúscula o minúscula) o un espacio
+        if ((char >= 'A' && char <= 'Z') || (char >= 'a' && char <= 'z') || char === ' ') {
+            // Si es una letra o espacio, añadirlo al nuevo valor
+            nuevoValor += char;
+        }
+        inputCardHolder.value = nuevoValor;
+    }});
+
+
+//boton pagar
+let botonPagar = document.querySelector(".boton-pagar")
+botonPagar.addEventListener("click" , ()=>{
+    if( inputFechaVencimientoTarjeta.value == "" || inputCodigoSeguridadTarjeta.value == "" || inputCardHolder.value == ""){
+        alert("Complete todos los datos")
+        return null
+    }
+    if(inputNumeroTarjeta.value.length < 16){
+        alert("Coloque los 16 digitos de la tarjeta")
+        return null
+    }
+    alert("Compra Exitosa")
+    //rederigir a la pagina principal
+    let panelPrincipal = document.querySelector(".section_img")
+    panelPrincipal.style.display = "flex"
+    let panelPago = document.querySelector(".payment-method")
+    panelPago.style.display = "none"
+    inputNumeroTarjeta.value = ""
+    inputFechaVencimientoTarjeta.value = ""
+    inputCodigoSeguridadTarjeta.value = ""
+    inputCardHolder.value = ""
+    despuesDePagar()
+})

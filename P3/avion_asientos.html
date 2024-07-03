@@ -341,7 +341,7 @@
               <!--fila clase-->
                 <tr>
                     <td class="left-align">Clase</td>
-                    <td class="left-align" >Economico/light</td>
+                    <td class="left-align tipoClaseSeleccionada" >Economico/light</td>
                 </tr> 
               <!--fila fecha-->
               <tr>
@@ -366,39 +366,39 @@
               <!--fila 1-->
                 <tr>
                     <td class="left-align">Maleta Registrada</td>
-                    <td>436.21</td>
+                    <td id="tablaMaletaRegistradaCosto">436.21</td>
                     <td id="tablaMaletaRegistrada">0</td>
                     <td id="tablaMaletaRegistradaPago">0</td>
-                    <td id="tablaMaletaRegistradaPago">explica caracteristicas de maleta</td>
+                    <td >explica caracteristicas de maleta</td>
                 </tr> 
                 <!--fila 2-->
                 <tr>
                   <td class="left-align">Maleta de Mano</td>
-                  <td>218.11</td>
+                  <td id="tablaMaletaManoCosto">218.11</td>
                   <td id="tablaMaletaMano">0</td>
                   <td id="tablaMaletaManoPago">0</td>
                 </tr> 
                 <!--fila 3-->
                 <tr>
                   <td class="left-align">Adulto </td>
-                  <td>843.34</td>
+                  <td id="tablaAdultoCosto">843.34</td>
                   <td id="tablaAdulto">0</td>
                   <td id="tablaAdultoPago">0</td>
               </tr> 
               <!--fila 4-->
               <tr>
                 <td class="left-align">Niños </td>
-                <td>814.26</td>
+                <td id="tablaNiñoCosto">814.26</td>
                 <td id="tablaNiño">0</td>
                 <td id="tablaNiñoPago">0</td>
             </tr> 
             <!--fila 5-->
             <tr>
               <td class="left-align">Infantes </td>
-              <td>799.72</td>
+              <td id="tablaInfanteCosto">799.72</td>
               <td id="tablaInfante">0</td>
               <td id="tablaInfantePago">0</td>
-              <td id="tablaInfantePago">servicios de aerolinea</td>
+              <td >servicios de aerolinea</td>
           </tr> 
           
           <!--fila 7-->
@@ -415,7 +415,7 @@
         <button class="boton-aceptar">Aceptar reserva</button>
         </section>
         <!--PANEL DE PAGO-->
-        <section class="payment-method">
+        <section class="payment-method" style="display: none;">
           <div class="payment-container">
             <div class="payment-content">
               <div class="payment-options">
