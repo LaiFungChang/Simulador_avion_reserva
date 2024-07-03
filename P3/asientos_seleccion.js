@@ -440,6 +440,31 @@ function despuesBotonRegistro(){
     } //aqui termina el if
     tablaRegistro.innerHTML = ""
     tablaRegistro.appendChild(fragmento)
+    let botonesEliminar = document.querySelectorAll(".boton-eliminar")
+    botonesEliminar.forEach(eliminar => {
+        eliminar.addEventListener("click", ()=>{
+            let filaPadre = eliminar.parentElement.parentElement
+            let ticket = filaPadre.className
+            let reservaBorrar = null
+            listaReservas.forEach(reserva=>{
+                if (reserva.identificador == ticket){
+                    reservaBorrar = reserva
+                }
+            });
+            let asientosReserva = reservaBorrar.asiento
+            asientosReserva = asientosReserva.trim()
+            asientosReserva = asientosReserva.split(" ")
+            asientosReserva.forEach(valorAsiento =>{
+                asientosHTML.forEach(asiento =>{
+                    if(asiento.getAttribute("data-value") == valorAsiento){
+                        asiento.classList.remove("ocupado")
+                    }
+                })
+            })
+            listaReservas = listaReservas.filter(item => item!=reservaBorrar)
+            tablaRegistro.removeChild(filaPadre)
+        })
+    })
 
 }
 
