@@ -64,16 +64,19 @@ body {
     text-align: center;
   }
   
-.costos-panel{
-  justify-content: center;
-  align-self: center;
-  align-content: center;
+.label-costos{
+  font: 24px Inter, sans-serif;
+  text-align: center;
+  margin-top: 10%;
 }
 /*TABLAS*/
   table {
-    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
     border-collapse: collapse;
+    width: 70%;
     margin-top: 30px;
+   
   }
   
   th, td {

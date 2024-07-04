@@ -344,6 +344,9 @@
           <button type="button" class="boton-volver-tabla-registro" style="margin-top: 20px;">
             <img src="volver_icon.png" alt="Ícono Volver" class="icono-volver">
           </button>
+          <h3 class="label-costos" style="margin-top: 5%;">
+            Registro de Reservas
+          </h3>
           <table>
             <thead>
               <!--Encabezado de tabla de registro-->
@@ -373,10 +376,11 @@
         <!--TABLA DE INFORMACION DEL VIAJE-->
         <section class="costos-panel" style="display: none;">
           <!--tabla de Informacion del vuelo-->
-          <h3 class="luggage-section">
+          <h3 class="label-costos">
             Información sobre el vuelo
           </h3>
           <table>
+            
             <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
               <!--Tipo de clase-->
                 <tr>
@@ -504,7 +508,7 @@
             
             <!--fila 7-->
             <tr>
-              <td class="left-align">Total </td>
+              <td class="left-align">Total (CNY)</td>
               <td></td>
               <td></td>
               <td id="tablaPago">0</td>
@@ -512,8 +516,10 @@
           </tbody>
           </table>
           </div>
-        <button class="boton-volver-reserva" >Modificar reserva</button>
-        <button class="boton-aceptar">Aceptar</button>
+            <div class="action-buttons-costos">
+            <button class="boton-volver-reserva" >Modificar reserva</button>
+            <button class="boton-aceptar">Aceptar</button>
+          </div>  
         </section>
 
 
