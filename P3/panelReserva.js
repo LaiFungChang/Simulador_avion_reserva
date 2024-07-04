@@ -211,7 +211,7 @@ inputGuardarReserva.addEventListener("click" ,()=>{
             
         }
         if(inputTipoAsiento.value == "Economico normal"){
-            tablaTipoClase.textContent = "Economico medio"
+            tablaTipoClase.textContent = "Economico Medio"
             tablaMaletaRegistradaCosto.textContent = "436.21"
             tablaMaletaManoCosto.textContent = "218.11"
             tablaAdultoCosto.textContent = "996.02"
@@ -219,7 +219,7 @@ inputGuardarReserva.addEventListener("click" ,()=>{
             tablaInfanteCosto.textContent = "966.94"
         }
         if(inputTipoAsiento.value == "Economico plus"){
-            tablaTipoClase.textContent = "Economico Alto"
+            tablaTipoClase.textContent = "Economico Premium"
             tablaMaletaRegistradaCosto.textContent = "436.21"
             tablaMaletaManoCosto.textContent = "218.11"
             tablaAdultoCosto.textContent = "1235.93"

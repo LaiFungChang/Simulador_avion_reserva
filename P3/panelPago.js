@@ -52,7 +52,7 @@ inputCodigoSeguridadTarjeta.addEventListener('input', function() {
     // Iterar sobre cada carácter del valor actual del input
     for (let i = 0; i < valor.length; i++) {
         // Verificar si el carácter actual es un dígito
-        if (!isNaN(valor[i]) && valor[i] !== ' ') {
+        if (!isNaN(valor[i]) && valor[i] !== ' ' && nuevoValor.length < 4) {
             // Si es un dígito, añadirlo al nuevo valor
             nuevoValor += valor[i];
         }
