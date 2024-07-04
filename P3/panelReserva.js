@@ -134,6 +134,7 @@ inputTipoAsiento.addEventListener("change", ()=>{
 //sacamos el resto de input's
 inputEquipajeRegistrado = document.querySelector("#registered-luggage")
 inputEquipajeMano = document.querySelector("#hand-luggage")
+
 inputAdultos = document.querySelector("#adults")
 inputNiños = document.querySelector("#children")
 inputInfantes = document.querySelector("#infants")
@@ -271,6 +272,10 @@ asientosHTML.forEach(asiento => {
     asiento.addEventListener("click" , function(e) {
         if (inputTipoAsiento.value != "Economico normal" && inputTipoAsiento.value !="Economico bajo" && inputTipoAsiento.value !="Economico plus"){
             alert("Elige una clase para tus asientos")
+            return null
+        }
+        if(sumarPasajeros() == 0){
+            alert("Coloca la cantidad de asientos")
             return null
         }
         //Obtenemos el asiento que desencadeno el evento
