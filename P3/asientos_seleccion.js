@@ -513,19 +513,14 @@ function despuesBotonRegistro(){
 
             //parte de los botones
             // Crear elementos HTML
-            var tdVer = document.createElement('td');
             var tdEliminar = document.createElement('td');
-            var botonVer = document.createElement('button');
             var botonEliminar = document.createElement('button');
 
             // Agregar clases a los botones
-            botonVer.className = 'boton-ver';
             botonEliminar.className = 'boton-eliminar';
 
             // Agregar texto a los botones
-            botonVer.textContent = 'Ver';
             botonEliminar.textContent = 'X';
-            tdVer.appendChild(botonVer)
             tdEliminar.appendChild(botonEliminar)
 
             //rellenamos los datos
@@ -541,7 +536,6 @@ function despuesBotonRegistro(){
             fila.appendChild(tdEquipajeMano)
             fila.appendChild(tdCantidadAsientos)
             fila.appendChild(tdAsientos)
-            fila.appendChild(tdVer)
             fila.appendChild(tdEliminar)
             fragmento.appendChild(fila)
         })
