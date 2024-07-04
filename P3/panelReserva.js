@@ -167,7 +167,9 @@ inputGuardarReserva.addEventListener("click" ,()=>{
         return null
     }
     else{
-
+        if(inputAdultos.value == "0"){
+            alert("Los niños e infantes deben de contar con una autorizacion de su representante al momento de presentarse al vuelo")
+        }
         let tablaTipoClase = document.querySelector(".tipoClaseSeleccionada")
         console.log(tablaTipoClase)
 
