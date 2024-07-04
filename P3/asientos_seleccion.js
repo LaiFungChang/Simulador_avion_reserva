@@ -3,24 +3,6 @@ contains(class) --> verifica si el elemento tiene esa clase, si la tiene devuelv
 e.target
 */
 
-
-//Scrolls 
-
-/* PANEL PRINCIPAL */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
     Input del pasaporte con solo numeros
@@ -71,24 +53,5 @@ e.target
 */
 
 
-
-
-
-
-
-
-
-
 //Funcion que suma la cantidad de pasajeros
-
-
-
-
-
-
-
-
-
-
-
 

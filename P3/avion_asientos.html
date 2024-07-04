@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOLYSKY</title>
     <link rel="stylesheet" href="styleSheets.css">
-    
+    <link rel="stylesheet" href="botones.css">
+    <link rel="stylesheet" href="panel_reserva.css">
+    <link rel="stylesheet" href="panel-pago.css">
+
 </head>
 
 <body>
@@ -56,12 +59,12 @@
               <div class="luggage-column">
                 <!--FORMULARIO DE RESERVA DE VUELO-->
                 <div class="luggage-panel">
-                  <label for="tipoAsiento" class="luggage-item">Seleccione el tipo de asiento:</label>
+                  <label class="luggage-item">Seleccione el tipo de asiento:</label>
                   <select id="tipoAsiento" class="lista-despegable">
                     <option value="" selected disabled hidden class="lista-despegable">Seleccione una clase</option>
-                    <option value="Economico bajo" style="text-align: left;">Economico Ligero</option>
-                    <option value="Economico normal" style="text-align: left;">Economico Ejecutivo</option>
-                    <option value="Economico plus" style="text-align: left;">Economico Premium</option>
+                    <option value="Economico bajo" class="lista-despegable">Economico Ligero</option>
+                    <option value="Economico normal" class="lista-despegable">Economico Ejecutivo</option>
+                    <option value="Economico plus" class="lista-despegable">Economico Premium</option>
                   </select>
 
                   <label id="seleccionado"></label>
@@ -84,6 +87,8 @@
               <!--ASIENTOS-->
               <div class="luggage-column">
                 <div class="seat-map">
+                  
+
                   <div class="seat-row">
                     <span class="seat-number">30</span>
                     <div class="seat-group">
@@ -279,12 +284,12 @@
                   <div class="seat-row">
                     <span class="seat-number">44</span>
                     <div class="seat-group">
-                      <span class="area-sanitarios-insumos"></span>
+                      <span class="area-sanitarios-insumos">Baño</span>
                       <span class="seat bajo" data-value="C44"></span>
                       <span class="seat bajo" data-value="D44"></span>
                       <span class="seat bajo" data-value="F44"></span>
                       <span class="seat bajo" data-value="G44"></span>
-                      <span class="area-sanitarios-insumos"></span>
+                      <span class="area-sanitarios-insumos">Baño</span>
                     </div>
                   </div>
                   
@@ -301,9 +306,28 @@
                   <div class="seat-row">
                     <span class="seat-number">46</span>
                     <div class="seat-group">
-                      <span class="area-sanitarios-insumos"></span>
+                      <span class="area-sanitarios-insumos">cafe</span>
                     </div>
                   </div>
+
+                  <div class="leyenda">
+                    <div class="item">
+                        <span class="disponible"></span>
+                        <label>Disponible</label>
+                    </div>
+                    <div class="item">
+                        <span class="ocupado"></span>
+                        <label>Ocupado</label>
+                    </div>
+                    <div class="item">
+                        <span class="seleccionado"></span>
+                        <label>Seleccionado</label>
+                    </div>
+                    <div class="item">
+                        <span class="no-pertenece"></span>
+                        <label>No pertenece a la clase seleccionada</label>
+                    </div>
+                </div>
                 </div>
             </div>
           </div>
@@ -349,27 +373,30 @@
         <!--TABLA DE INFORMACION DEL VIAJE-->
         <section class="costos-panel" style="display: none;">
           <!--tabla de Informacion del vuelo-->
+          <h3 class="luggage-section">
+            Información sobre el vuelo
+          </h3>
           <table>
             <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
               <!--Tipo de clase-->
                 <tr>
                     <td class="left-align">Clase</td>
-                    <td class="left-align tipoClaseSeleccionada" >Economico/light</td>
+                    <td class="tipoClaseSeleccionada" >Economico/light</td>
                 </tr> 
               <!--fecha-->
               <tr>
                 <td class="left-align" >Fecha</td>
-                <td class="left-align" >18/07/2024</td>
+                <td>18/07/2024</td>
               </tr>
               <!--hora de vuelo-->
               <tr>
                 <td class="left-align" >Hora</td>
-                <td class="left-align" >4:50pm-8:35pm</td>  
+                <td >4:50pm-8:35pm</td>  
               </tr>
               <!--tiempo de vuelo-->
               <tr>
                 <td class="left-align" >Tiempo de vuelo</td>
-                <td class="left-align" >3h 45min</td>  
+                <td >3h 45min</td>  
               </tr>
               <!--Salida-->
               <tr>
@@ -401,21 +428,21 @@
               <tr>
                 <td class="left-align" >Cargos Extra</td>
                 <td class="left-align" >
-                  Economico/Ligero
+                  Economico Ligero
                   <ul>
                     <li>Tasa por cambio de vuelo CNY 500 + posible diferencia de tarifa.</li>
                     <li>Tasa de cancelación de vuelo CNY 850.</li>
                     <li>Tarifa de no presentación CNY CNY 800.</li>
                   </ul>
                    <br>
-                   Economico/Ejecutivo
+                   Economico Ejecutivo
                    <ul>
                     <li>Tasa por cambio de vuelo CNY 300 + posible diferencia de tarifa.</li>
                     <li>Tasa de cancelación de vuelo CNY 650.</li>
                     <li>Tarifa de no presentación CNY CNY 800.</li>
                   </ul>
                   <br>
-                  Economico/Premium
+                  Economico Premium
                    <ul>
                     <li>Tasa por cambio de vuelo GRATIS + posible diferencia de tarifa.</li>
                     <li>Tasa de cancelación de vuelo CNY 550.</li>
@@ -427,71 +454,66 @@
         </table>
 
           <!--INFORMACION DEL COSTO-->
-          <table>
-            <thead>
-              <!--Encabezado de tabla de COSTOS-->
-                <tr>
-                    <th class="left-align">Cargos</th>
-                    <th class="columna-cantidades">Costo (CNY)</th>
-                    <th class="columna-cantidades">Cantidad (unid)</th>
-                    <th class="columna-cantidades">Descripcion </th>
-                    <th class="columna-cantidades">Costo x maleta</th>
-                </tr>
-            </thead>
-            <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
-              <!--fila 1-->
-                <tr>
-                    <td class="left-align">Maleta Registrada</td>
-                    <td id="tablaMaletaRegistradaCosto">436.21</td>
-                    <td id="tablaMaletaRegistrada">0</td>
-                    <td >explica caracteristicas de maleta</td>
-                    <td id="tablaMaletaRegistradaPago">explica caracteristicas de maleta</td>
+          <div>
+            <table>
+              <thead>
+                <!--Encabezado de tabla de COSTOS-->
+                  <tr>
+                      <th class="left-align">Cargos</th>
+                      <th class="columna-cantidades">Costo (CNY)</th>
+                      <th class="columna-cantidades">Cantidad (unid)</th>
+                      <th class="columna-cantidades"></th>
+                  </tr>
+              </thead>
+              <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
+                <!--fila 1-->
+                  <tr>
+                      <td class="left-align">Maleta Registrada</td>
+                      <td id="tablaMaletaRegistradaCosto">436.21</td>
+                      <td >0</td>
+                      <td >0</td>
+                  </tr> 
+                  <!--fila 2-->
+                  <tr>
+                    <td class="left-align">Maleta de Mano</td>
+                    <td id="tablaMaletaManoCosto">218.11</td>
+                    <td id="tablaMaletaMano">0</td>
+                    <td id="tablaMaletaManoPago">0</td>
+                  </tr> 
+                  <!--fila 3-->
+                  <tr>
+                    <td class="left-align">Adulto (+12 años)</td>
+                    <td id="tablaAdultoCosto">843.34</td>
+                    <td id="tablaAdulto">0</td>
+                    <td id="tablaAdultoPago">0</td>>
                 </tr> 
-                <!--fila 2-->
+                <!--fila 4-->
                 <tr>
-                  <td class="left-align">Maleta de Mano</td>
-                  <td id="tablaMaletaManoCosto">218.11</td>
-                  <td id="tablaMaletaMano">0</td>
-                  <td >explica caracteristicas de maleta</td>
-                  <td id="tablaMaletaManoPago">0</td>
-                </tr> 
-                <!--fila 3-->
-                <tr>
-                  <td class="left-align">Adulto </td>
-                  <td id="tablaAdultoCosto">843.34</td>
-                  <td id="tablaAdulto">0</td>
-                  <td >servicios de aerolinea</td>
-                  <td id="tablaAdultoPago">0</td>>
+                  <td class="left-align">Niños (11 a 2 años)</td>
+                  <td id="tablaNiñoCosto">814.26</td>
+                  <td id="tablaNiño">0</td>
+                  <td id="tablaNiñoPago">0</td>
               </tr> 
-              <!--fila 4-->
+              <!--fila 5-->
               <tr>
-                <td class="left-align">Niños </td>
-                <td id="tablaNiñoCosto">814.26</td>
-                <td id="tablaNiño">0</td>
-                <td >servicios de aerolinea</td>
-                <td id="tablaNiñoPago">0</td>
+                <td class="left-align">Infantes (1 a 0 años)</td>
+                <td id="tablaInfanteCosto">799.72</td>
+                <td id="tablaInfante">0</td>
+                <td id="tablaInfantePago">0</td>
             </tr> 
-            <!--fila 5-->
+            
+            <!--fila 7-->
             <tr>
-              <td class="left-align">Infantes </td>
-              <td id="tablaInfanteCosto">799.72</td>
-              <td id="tablaInfante">0</td>
-              <td >servicios de aerolinea</td>
-              <td id="tablaInfantePago"></td>
-          </tr> 
-          
-          <!--fila 7-->
-          <tr>
-            <td class="left-align">Total </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td id="tablaPago">0</td>
-        </tr>           
-        </tbody>
-        </table>
-        <button class="boton-volver-reserva">Modificar reserva</button>
-        <button class="boton-aceptar">Guardar reserva</button>
+              <td class="left-align">Total </td>
+              <td></td>
+              <td></td>
+              <td id="tablaPago">0</td>
+          </tr>           
+          </tbody>
+          </table>
+          </div>
+        <button class="boton-volver-reserva" >Modificar reserva</button>
+        <button class="boton-aceptar">Aceptar</button>
         </section>
 
 
