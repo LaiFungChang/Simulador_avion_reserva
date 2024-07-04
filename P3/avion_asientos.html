@@ -10,6 +10,7 @@
 
 <body>
     <section class="flight-reservation">
+      <!--PANEL PRINCIPAL-->
         <header class="header" style="box-shadow: 0 2px 0 0 rgb(236, 236, 236);">HOLYSKY</header>
         <section class="section_img" style="display: flex;">
           <img src="image_cloud.png" alt="" class="hero-image" />
@@ -22,6 +23,7 @@
             </div>
           </div>
         </section>
+        <!--FORMULARIO DE CONTACTO-->
         <main class="reservation-panel" style="display: none;">
           <form class="reservation-form">
             <button type="button" class="boton-volver-seccion-reservacion" id="botonVolverResInicio">
@@ -52,6 +54,7 @@
           <div class="luggage-container">
             <div class="luggage-row">
               <div class="luggage-column">
+                <!--FORMULARIO DE RESERVA DE VUELO-->
                 <div class="luggage-panel">
                   <label for="tipoAsiento" class="luggage-item">Seleccione el tipo de asiento:</label>
                   <select id="tipoAsiento" class="lista-despegable">
@@ -77,6 +80,8 @@
                 
                 </div>
               </div>
+
+              <!--ASIENTOS-->
               <div class="luggage-column">
                 <div class="seat-map">
                   <div class="seat-row">
@@ -307,6 +312,8 @@
             <button id="botonGuardarReserva" class="boton-guardar">Guardar</button>
           </div>
       </main>
+
+
         <!--TABLA DE REGISTRO-->
         <section class="registro-panel" style="display: none;">
        
@@ -337,24 +344,89 @@
             </tbody>
         </table>
         </section>
-        <!--TABLA DE COSTOS-->
+
+
+        <!--TABLA DE INFORMACION DEL VIAJE-->
         <section class="costos-panel" style="display: none;">
           <!--tabla de Informacion del vuelo-->
           <table>
             <tbody> <!--cuerpo de la tabla, se empleara para usarlo en el ciclo-->
-              <!--fila clase-->
+              <!--Tipo de clase-->
                 <tr>
                     <td class="left-align">Clase</td>
                     <td class="left-align tipoClaseSeleccionada" >Economico/light</td>
                 </tr> 
-              <!--fila fecha-->
+              <!--fecha-->
               <tr>
-                <td class="left-align" >fecha</td>
-                <td class="left-align" >18 junio 2024</td>
+                <td class="left-align" >Fecha</td>
+                <td class="left-align" >18/07/2024</td>
+              </tr>
+              <!--hora de vuelo-->
+              <tr>
+                <td class="left-align" >Hora</td>
+                <td class="left-align" >4:50pm-8:35pm</td>  
+              </tr>
+              <!--tiempo de vuelo-->
+              <tr>
+                <td class="left-align" >Tiempo de vuelo</td>
+                <td class="left-align" >3h 45min</td>  
+              </tr>
+              <!--Salida-->
+              <tr>
+                <td class="left-align" >Salida</td>
+                <td class="left-align" >Pekín, Aeropuerto Intl. Pekín Capital (PEK)
+                  China Continental. 
+                </td>  
+              </tr>
+              <!--Llegada-->
+              <tr>
+                <td class="left-align" >Llegada</td>
+                <td class="left-align" >Hong Kong, Aeropuerto Intl. Hong Kong (HKG)
+                  Región Administrativa Especial de Hong Kong. 
+                </td>  
+              </tr>
+              <!--Consideraciones sobre el equipaje-->
+              <tr>
+                <td class="left-align" >Consideraciones sobre el equipaje</td>
+                <td class="left-align" >
+                  <ul>
+                    <li>Equipaje de mano: tiene un peso maximo de 7kg.</li>
+                    <li>Equipaje Registrado: tiene un peso maximo de 23kg.</li>
+                  </ul>
+                   <br>
+                  Si presenta exceso de equipaje se realizara un cargo por el exceso de peso.
+                </td>  
+              </tr>
+              <!--Cargos extras segun los suceso-->
+              <tr>
+                <td class="left-align" >Cargos Extra</td>
+                <td class="left-align" >
+                  Economico/Ligero
+                  <ul>
+                    <li>Tasa por cambio de vuelo CNY 500 + posible diferencia de tarifa.</li>
+                    <li>Tasa de cancelación de vuelo CNY 850.</li>
+                    <li>Tarifa de no presentación CNY CNY 800.</li>
+                  </ul>
+                   <br>
+                   Economico/Ejecutivo
+                   <ul>
+                    <li>Tasa por cambio de vuelo CNY 300 + posible diferencia de tarifa.</li>
+                    <li>Tasa de cancelación de vuelo CNY 650.</li>
+                    <li>Tarifa de no presentación CNY CNY 800.</li>
+                  </ul>
+                  <br>
+                  Economico/Premium
+                   <ul>
+                    <li>Tasa por cambio de vuelo GRATIS + posible diferencia de tarifa.</li>
+                    <li>Tasa de cancelación de vuelo CNY 550.</li>
+                    <li>Tarifa de no presentación CNY CNY 800.</li>
+                  </ul>
+                </td>  
               </tr>
             </tbody>
         </table>
-          <!--Info table-->
+
+          <!--INFORMACION DEL COSTO-->
           <table>
             <thead>
               <!--Encabezado de tabla de COSTOS-->
@@ -415,14 +487,14 @@
             <td></td>
             <td></td>
             <td id="tablaPago">0</td>
-            
         </tr>           
         </tbody>
         </table>
-        <!--REDIRIGE AL PANEL DE RESERVAR FALTA-->
         <button class="boton-volver-reserva">Modificar reserva</button>
-        <button class="boton-aceptar">Aceptar reserva</button>
+        <button class="boton-aceptar">Guardar reserva</button>
         </section>
+
+
         <!--PANEL DE PAGO-->
         <section class="payment-method" style="display: none;">
           <div class="payment-container">
@@ -466,14 +538,12 @@
                     <label for="cardHolder" class="form-label">Titular de la tarjeta</label>
                     <input type="text" id="cardHolder" class="form-input-nombre-tarjeta" placeholder="Nombres y Apellidos" required />
                   </div>
-                 
                 </div>
               </div>
             </form>
             <button type="submit" class="boton-pagar">Realizar Pago</button>
           </div>
         </section>
-      
       </section>
       <script src="asientos_seleccion.js" defer></script>
       <script src="global.js"></script>
