@@ -15,6 +15,7 @@ function despuesDePagar(){
         }
         
     })
+
     borrarFormularioReserva()
 }
 
@@ -22,6 +23,7 @@ function despuesDePagar(){
 let inputNumeroTarjeta = document.querySelector("#cardNumber")
 
 inputNumeroTarjeta.addEventListener('input', function() {
+
     let valor = inputNumeroTarjeta.value;
     let nuevoValor = '';
 
@@ -35,8 +37,8 @@ inputNumeroTarjeta.addEventListener('input', function() {
     }
 
     // Limitar la longitud a 16 caracteres
-    if (nuevoValor.length > 16) {
-        nuevoValor = nuevoValor.slice(0, 16); // Cortar el valor a los primeros 16 caracteres
+    if (nuevoValor.length > 19) {
+        nuevoValor = nuevoValor.slice(0, 19); // Cortar el valor a los primeros 16 caracteres
     }
 
     // Actualizar el valor del input con el nuevo valor limpio y limitado
@@ -86,8 +88,8 @@ botonPagar.addEventListener("click" , ()=>{
         alert("Complete todos los datos")
         return null
     }
-    if(inputNumeroTarjeta.value.length < 16){
-        alert("Coloque los 16 digitos de la tarjeta")
+    if(inputNumeroTarjeta.value.length== 0){
+        alert("Coloque los Digitos de la tarjeta")
         return null
     }
     alert("Compra Exitosa")
@@ -100,5 +102,42 @@ botonPagar.addEventListener("click" , ()=>{
     inputFechaVencimientoTarjeta.value = ""
     inputCodigoSeguridadTarjeta.value = ""
     inputCardHolder.value = ""
+    let todasLasTarjetas3 = document.querySelectorAll('.card-logo');
+        todasLasTarjetas3.forEach(function(tarjeta) {
+            tarjeta.style.border = 'none';
+        });
     despuesDePagar()
+})
+
+// Funcionalidad a las imagenes
+let todasLasTarjetas = document.querySelectorAll('.card-logo');
+todasLasTarjetas.forEach(tarjetaImagen =>{
+    tarjetaImagen.addEventListener("click" , ()=>{
+        let todasLasTarjetas2 = document.querySelectorAll('.card-logo');
+        todasLasTarjetas2.forEach(function(tarjeta) {
+            tarjeta.style.border = 'none';
+        });
+
+        // Añade un borde resaltado a la tarjeta seleccionada
+        
+        tarjetaImagen.style.border = '2px solid blue'; // Cambia el estilo del borde según tus necesidades
+    })
+})
+
+// boton volver costos
+let botonVolverCostos = document.querySelector(".boton-volver-costos")
+botonVolverCostos.addEventListener("click" , ()=>{
+    let panelCostos = document.querySelector(".costos-panel")
+    panelCostos.style.display = "block"
+    let panelPago = document.querySelector(".payment-method")
+    panelPago.style.display = "none"
+    inputNumeroTarjeta.value = ""
+    inputFechaVencimientoTarjeta.value = ""
+    inputCodigoSeguridadTarjeta.value = ""
+    inputCardHolder.value = ""
+    let todasLasTarjetas3 = document.querySelectorAll('.card-logo');
+        todasLasTarjetas3.forEach(function(tarjeta) {
+            tarjeta.style.border = 'none';
+        });
+
 })
