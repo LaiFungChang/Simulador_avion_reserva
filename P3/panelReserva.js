@@ -270,6 +270,7 @@ todosLosInputs.forEach((input)=>{
 asientosHTML.forEach(asiento => {
     asiento.addEventListener("click" , function(e) {
         if (inputTipoAsiento.value != "Economico normal" && inputTipoAsiento.value !="Economico bajo" && inputTipoAsiento.value !="Economico plus"){
+            alert("Elige una clase para tus asientos")
             return null
         }
         //Obtenemos el asiento que desencadeno el evento
