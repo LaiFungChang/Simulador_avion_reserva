@@ -60,7 +60,7 @@ inputPasaporte.addEventListener('input', function() {
 
 //hacemos la validacion para el input del telefono
 inputTelefono = document.querySelector("#phone")
-inputTelefono.addEventListener('input', function() {
+inputTelefono.addEventListener('input', function(event) {
     let value = this.value.trim(); // Obtener el valor del input y eliminar espacios en blanco al principio y al final
     let formattedValue = '';
 
@@ -73,9 +73,12 @@ inputTelefono.addEventListener('input', function() {
         }
     }
 
-    // Aplicar el formato "0000-0000000"
-    if (formattedValue.length > 4) {
-        formattedValue = formattedValue.substring(0, 4) + '-' + formattedValue.substring(4, 11);
+    // Limitar el número de caracteres a 15
+    formattedValue = formattedValue.substring(0, 15);
+
+    // Añadir el prefijo '+' al inicio si no está presente
+    if (!formattedValue.startsWith('+')) {
+        formattedValue = '+' + formattedValue;
     }
 
     // Actualizar el valor del input
@@ -154,7 +157,7 @@ inputGuardarReserva.addEventListener("click" ,()=>{
         alert("Pasaporte incompleto")
         return null
     }
-    else if(inputTelefono.value.length < 12){
+    else if(inputTelefono.value.length == 0 || inputTelefono.value.length == 1){
         alert("telefono incompleto")
         return null
     }
